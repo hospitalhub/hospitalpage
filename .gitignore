@@ -1,0 +1,9 @@
+/bower_components/
+/vendor/
+/wp/
+/wp-content/
+/composer.lock
+/composer.phar
+/.settings/
+/.buildpath
+/.env
