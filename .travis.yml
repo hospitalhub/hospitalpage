@@ -16,8 +16,8 @@ before_script:
   - mysqladmin create wordpress_test --user=root
   - cp resources/.env .
   - composer install -vv
+  - curl 127.0.0.1
   - ./selenium.sh
   - mkdir -p build/logs
-  - curl 127.0.0.1
 script:
   - phpunit
