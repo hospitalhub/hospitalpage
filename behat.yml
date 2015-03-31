@@ -1,0 +1,9 @@
+# behat.yml
+default:
+    extensions:
+        Behat\MinkExtension\Extension:
+            base_url: 'http://wikipedia.org'
+            goutte: ~
+            selenium2:
+                browser: 'firefox'
+                capabilities: { "browser": "firefox", "browserVersion": "33", "version": "ANY", platform:"LINUX", deviceType:"PC"}
