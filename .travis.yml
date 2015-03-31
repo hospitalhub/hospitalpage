@@ -12,6 +12,7 @@ before_script:
   - sudo cp -f resources/travis-ci-apache /etc/apache2/sites-available/default
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
   - sudo service apache2 restart
+  - curl 127.0.0.1
   #mysql
   - mysqladmin create wordpress_test --user=root
   - cp resources/.env ~
