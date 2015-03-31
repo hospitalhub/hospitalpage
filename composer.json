@@ -23,8 +23,6 @@
 		"amarcinkowski/responsive-child" : "dev-master",
 		"amarcinkowski/punction" : "dev-master",
 		"amarcinkowski/epidemio" : "dev-master",
-		"amarcinkowski/wardbook" : "dev-master",
-		"amarcinkowski/organiso" : "dev-master",
 		"wpackagist-plugin/bootstrap-3-shortcodes" : "*",
 		"wpackagist-plugin/codepress-admin-columns" : "*",
 		"wpackagist-plugin/contact-form-7" : "*",
@@ -53,15 +51,15 @@
 		"wpackagist-plugin/shortcode-exec-php" : "*",
 		"wpackagist-plugin/wp-calendar" : "*",
 		"wpackagist-plugin/wp-clean-up" : "*",
-		"wpackagist-plugin/wp-crontrol" : "*"
-	},
-	"scripts" : {
-		"post-install-cmd" : [
-			"Koodimonni\\Installer::installLanguages"
-		],
-		"post-update-cmd" : [
-			"Koodimonni\\Installer::installLanguages"
-		]
+		"wpackagist-plugin/wp-crontrol" : "*",
+		"phpunit/phpunit" : "4.1.*",
+		"phpunit/phpunit-selenium" : "*",
+		"netwing/selenium-server-standalone" : "2.43.*",
+		"behat/behat" : "2.4.*@stable",
+		"behat/mink" : "1.4.*@stable",
+		"behat/mink-extension" : "*",
+		"behat/mink-goutte-driver" : "*",
+		"behat/mink-selenium2-driver" : "*"
 	},
 	"repositories" : [{
 			"type" : "composer",
@@ -71,22 +69,13 @@
 			"url" : "http://languages.koodimonni.fi"
 		}, {
 			"type" : "vcs",
-			"url" : "https://wsz.git.cloudforge.com/hospitaltheme.git"
+			"url" : "https://github.com/amarcinkowski/hospitaltheme.git"
 		}, {
 			"type" : "vcs",
-			"url" : "https://wsz.git.cloudforge.com/punction.git"
+			"url" : "https://github.com/amarcinkowski/punction.git"
 		}, {
 			"type" : "vcs",
-			"url" : "https://wsz.git.cloudforge.com/epidemio.git"
-		}, {
-			"type" : "vcs",
-			"url" : "https://wsz.git.cloudforge.com/wardbook.git"
-		}, {
-			"type" : "vcs",
-			"url" : "https://wsz.git.cloudforge.com/hospitalplugin.git"
-		}, {
-			"type" : "vcs",
-			"url" : "https://wsz.git.cloudforge.com/organiso.git"
+			"url" : "https://github.com/amarcinkowski/epidemio.git"
 		}, {
 			"type" : "package",
 			"package" : {

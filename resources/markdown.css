@@ -1,0 +1,25 @@
+body {
+	color: #111;
+}
+
+img {
+	width: 85%;
+}
+
+table {
+	width: 100%;
+	color: black;
+	background-color: white;
+}
+
+td.tdimg {
+	width: 38%;
+}
+
+td.notice {
+	width: 16%;
+}
+
+.tdimg {
+	color: red;
+}
