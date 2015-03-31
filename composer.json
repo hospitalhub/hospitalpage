@@ -61,6 +61,14 @@
 		"behat/mink-goutte-driver" : "*",
 		"behat/mink-selenium2-driver" : "*"
 	},
+	"scripts" : {
+		"post-install-cmd" : [
+			"Koodimonni\\Installer::installLanguages"
+		],
+		"post-update-cmd" : [
+			"Koodimonni\\Installer::installLanguages"
+		]
+	},
 	"repositories" : [{
 			"type" : "composer",
 			"url" : "http://wpackagist.org"
