@@ -15,7 +15,7 @@ before_script:
   - ./selenium.sh
   #mysql
   - mysqladmin create wordpress_test --user=root
-  - cp resources/.env ~
+  - cp resources/.env .
   - composer install -vv
   - mkdir -p build/logs
   - curl 127.0.0.1
