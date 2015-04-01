@@ -12,6 +12,6 @@
  * @var bool
  */
 define('WP_USE_THEMES', true);
-
+echo 'hello world! ' . phpversion() . PHP_EOL;
 /** Loads the WordPress Environment and Template */
-require( dirname( __FILE__ ) . '/wp/wp-blog-header.php' );
+// require( dirname( __FILE__ ) . '/wp/wp-blog-header.php' );

@@ -2,17 +2,9 @@ language: php
 php:
   - 5.5
 before_script:
-  #apache
-  - sudo apt-get update 2>/dev/null
-  - sudo apt-get install apache2 libapache2-mod-fastcgi # php5-mysql
-  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-  - sudo a2enmod rewrite actions fastcgi alias
-  - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
-  - sudo cp -f resources/travis-ci-apache /etc/apache2/sites-available/default
-  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
-  - sudo service apache2 restart
-  #mysql
+  # apache
+  - ./install_dependencies.sh
+  # mysql
   - mysqladmin create wordpress_test --user=root
   - cp resources/.env .
   - composer install -vv
@@ -22,4 +14,5 @@ before_script:
   - ./selenium.sh
   - mkdir -p build/logs
 script:
+  - curl -s http://localhost/ && sudo cat /var/log/apache2/error.log && curl -s http://localhost/ | grep -F "hello world! $TRAVIS_PHP_VERSION" && curl -s http://localhost/non_existing_url_is_redirected | grep -F "hello world! $TRAVIS_PHP_VERSION" && curl -s http://mydomain.local/ | grep -F "hello world! $TRAVIS_PHP_VERSION"
   - composer behat
