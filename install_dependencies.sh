@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # Install everything
-sudo apt-get install -qq apache2
+sudo apt-get update
+sudo apt-get install apache2
 
 # Configure Apache
 WEBROOT="$(pwd)"
