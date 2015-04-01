@@ -3,7 +3,8 @@ php:
   - "5.5"
 before_script:
   # apache
-  - ./install_dependencies.sh
+  - ./install-dependencies.sh
+  - ./install-wp-tests.sh
   # mysql
   - mysqladmin create wordpress_test --user=root
   - cp resources/.env .
