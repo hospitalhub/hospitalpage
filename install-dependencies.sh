@@ -1,4 +1,5 @@
 #!/bin/bash
+composer config -g github-oauth.github.com $1
 COMPOSER_CACHE_DIR=/dev/null
 mkdir /home/vagrant/.composer
 sudo cp /vagrant/auth.json /home/vagrant/.composer/
