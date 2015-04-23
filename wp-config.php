@@ -17,10 +17,9 @@ require __DIR__ . '/vendor/autoload.php';
 // .env
 \Dotenv::load(__DIR__);
 define('WP_DEBUG', true);
-
 define('WP_ADDR', getenv('HOSPITAL_HOST'));
 define('WP_HOME', WP_ADDR);
-define('WP_SITEURL', WP_ADDR . '');
+define('WP_SITEURL', WP_ADDR . '/wp/');
 define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
 define('WP_CONTENT_URL', WP_ADDR . '/wp-content');
 define('HOSPITAL_PLUGIN_URL', '/vendor/amarcinkowski/hospitalplugin');
@@ -44,13 +43,6 @@ define('LOGGED_IN_SALT', getenv('LOGGED_IN_SALT'));
 define('NONCE_SALT', getenv('NONCE_SALT'));
 
 $table_prefix = 'wp_';
-
-define('MULTISITE', true);
-define('SUBDOMAIN_INSTALL', false);
-define('DOMAIN_CURRENT_SITE', WP_ADDR);
-define('PATH_CURRENT_SITE', '/');
-define('SITE_ID_CURRENT_SITE', 1);
-define('BLOG_ID_CURRENT_SITE', 1);
 
 /* That's all, stop editing! Happy blogging. */
 
