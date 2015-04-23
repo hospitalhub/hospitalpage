@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
 
+DB_USER=root
+DB_PASSWORD=pass
+
 # Install everything
-sudo apt-get update
-sudo apt-get install apache2
+echo "ubuntu apt get update"
+sudo apt-get update 2>/dev/null
+echo "mysql"
+echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | sudo debconf-set-selections
+echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | sudo debconf-set-selections 
+sudo apt-get install -y mysql-server 2> /dev/null
+sudo apt-get install -y mysql-client 2> /dev/null
+echo "installing apache2 php5..."
+sudo apt-get install -y apache2 php5 libapache2-mod-php5 php5-mysql php5-curl  phpunit subversion nodejs git 2> /dev/null
 
 # Configure Apache
 WEBROOT="$(pwd)"
