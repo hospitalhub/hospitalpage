@@ -1,4 +1,5 @@
 WP=/var/www
+cp resources/.env .
 wp db create
 wp core install --url=127.0.0.1 --title=x --admin_user=root --admin_email=x@x.w --admin_password=x
 #wp blog create --url=127.0.0.1
