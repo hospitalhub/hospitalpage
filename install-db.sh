@@ -1,11 +1,13 @@
 #!/bin/bash
-sudo cp $APP_DIR/resources/.env /root/.env
-sudo -u vagrant cp $APP_DIR/resources/.env /home/vagrant/.env
-cd $APP_DIR/vendor/amarcinkowski/hospitalplugin/
+DIR=/var/www
+cd $DIR
+sudo cp resources/.env /root/.env
+sudo -u vagrant cp resources/.env /home/vagrant/.env
+cd $DIR/vendor/amarcinkowski/hospitalplugin/
 ../../bin/doctrine orm:schema-tool:create
-cd $APP_DIR/wp-content/plugins/punction/
+cd $DIR/wp-content/plugins/punction/
 ../../../vendor/bin/doctrine orm:schema-tool:create
-cd $APP_DIR/wp-content/plugins/epidemio
+cd $DIR/wp-content/plugins/epidemio
 ../../../vendor/bin/doctrine orm:schema-tool:create
 echo "insert into hospital_user values (1,'1','admin');" | sudo -u vagrant wp db cli
 echo "INSERT INTO hospital_ward VALUES (1, 'Oddział Specjalny', 'OS', 'OS', 'Ataman Młoda Foka', 'ZZ', 0, '', '', '', '');" | sudo -u vagrant wp db cli
