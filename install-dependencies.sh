@@ -5,4 +5,4 @@ sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 composer config -g github-oauth.github.com $1
 cd /var/www
-composer install -o --prefer-dist --no-interaction -vv --no-dev
+composer install -o --prefer-dist --no-interaction -vv
