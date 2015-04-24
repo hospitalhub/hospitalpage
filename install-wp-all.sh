@@ -11,3 +11,4 @@ wp cap add administrator read_pacjenci_wszystkie_oddz
 wp rewrite structure '%postname%'
 wp core multisite-convert
 wp blog create --url=127.0.0.1
+wp rewrite structure '%postname%'
