@@ -36,9 +36,7 @@ sudo echo "<VirtualHost *:80>
 		DirectoryIndex index.php index.html
 		AddType application/x-httpd-php5 .php
 		Action application/x-httpd-php5 '/local-bin/php-cgi'
-</VirtualHost>" | sudo tee /etc/apache2/sites-available/default > /dev/null
-cat /etc/apache2/sites-available/default
-sudo sed -i.bak 's/var\/www\/html/var\/www/g' /etc/apache2/sites-available/000-default.conf
+</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
 sudo a2enmod rewrite
 sudo a2enmod actions
