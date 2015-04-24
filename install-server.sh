@@ -15,7 +15,7 @@ echo "installing apache2 php5..."
 sudo apt-get install -y apache2 php5 libapache2-mod-php5 php5-mysql php5-curl  phpunit subversion nodejs git 2> /dev/null
 
 # Configure Apache
-WEBROOT="$(pwd)"
+WEBROOT="/var/www"
 CGIROOT=`dirname "$(which php-cgi)"`
 echo "WEBROOT: $WEBROOT"
 echo "CGIROOT: $CGIROOT"
