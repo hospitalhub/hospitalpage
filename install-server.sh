@@ -45,4 +45,14 @@ sudo service apache2 restart
 # Configure custom domain
 echo "127.0.0.1 mydomain.local" | sudo tee --append /etc/hosts
 
-echo "TRAVIS_PHP_VERSION: $TRAVIS_PHP_VERSION"
+if [ $TRAVIS_PHP_VERSION != "" ]; then
+	echo "non-travis";
+else
+	echo "travis";
+fi
+
+if [$HOSTNAME = $VAGRANT ]; then
+	echo "VAGRANT";
+else
+	echo "non-vagrant";
+fi
