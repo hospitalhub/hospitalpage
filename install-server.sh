@@ -2,17 +2,19 @@
 
 DB_USER=root
 DB_PASSWORD=pass
+VAGRANT="vagrant-ubuntu-trusty-64"
 
 # Install everything
+export DEBIAN_FRONTEND=noninteractive
 echo "ubuntu apt get update"
-sudo apt-get update 2>/dev/null
+sudo apt-get update 2>/dev/null 2>&1
 echo "mysql"
 echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | sudo debconf-set-selections
 echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | sudo debconf-set-selections 
 sudo apt-get install -y mysql-server 2> /dev/null
 sudo apt-get install -y mysql-client 2> /dev/null
 echo "installing apache2 php5..."
-sudo apt-get install -y apache2 php5 libapache2-mod-php5 php5-mysql php5-curl  phpunit subversion nodejs git 2> /dev/null
+sudo apt-get install -y apache2 php5 libapache2-mod-php5 php5-mysql php5-curl phpunit subversion nodejs git 2> /dev/null 2>&1
 
 # Configure Apache
 WEBROOT="/var/www"
@@ -45,14 +47,26 @@ sudo service apache2 restart
 # Configure custom domain
 echo "127.0.0.1 mydomain.local" | sudo tee --append /etc/hosts
 
-if [ $TRAVIS_PHP_VERSION != "" ]; then
+
+
+#=================================================================
+
+if [ -z "$TRAVIS_PHP_VERSION" ]; then
 	echo "non-travis";
 else
 	echo "travis";
 fi
 
-if [$HOSTNAME = $VAGRANT ]; then
-	echo "VAGRANT";
+if [ "$HOSTNAME" = "$VAGRANT" ]; then
+	echo "phpmyadmin@vagrant"
+	echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | debconf-set-selections
+	echo "phpmyadmin phpmyadmin/app-password-confirm password $DB_PASSWORD" | debconf-set-selections
+	echo "phpmyadmin phpmyadmin/mysql/admin-pass password $DB_PASSWORD" | debconf-set-selections
+	echo "phpmyadmin phpmyadmin/mysql/app-pass password $DB_PASSWORD" | debconf-set-selections
+	echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
+	sudo apt-get -y install phpmyadmin 
+	echo "phpmyadmin installed"
 else
-	echo "non-vagrant";
+	echo "non-vagrant $HOSTNAME";
 fi
+
