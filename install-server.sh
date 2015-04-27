@@ -6,8 +6,8 @@ VAGRANT="vagrant-ubuntu-trusty-64"
 
 # Install everything
 export DEBIAN_FRONTEND=noninteractive
-echo "ubuntu apt get update"
-sudo apt-get update 2>/dev/null 2>&1
+#echo "ubuntu apt get update"
+#sudo apt-get update 2>/dev/null 2>&1
 echo "mysql"
 echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | sudo debconf-set-selections
 echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | sudo debconf-set-selections 
