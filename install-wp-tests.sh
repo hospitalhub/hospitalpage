@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-if [ $# -lt 3 ]; then
-	echo "usage: $0 <db-name> <db-user> <db-pass> [db-host] [wp-version]"
-	exit 1
-fi
+#if [ $# -lt 3 ]; then
+#	echo "usage: $0 <db-name> <db-user> <db-pass> [db-host] [wp-version]"
+#	exit 1
+#fi
 
 DB_NAME=$1
 DB_USER=$2
 DB_PASS=$3
 DB_HOST=${4-localhost}
-WP_VERSION=${5-master}
+WP_VERSION=${5-latest}
 
 WP_TESTS_DIR=${WP_TESTS_DIR-/tmp/wordpress-tests-lib}
 WP_CORE_DIR=/tmp/wordpress/
@@ -77,5 +77,5 @@ install_db() {
 
 install_wp
 install_test_suite
-install_db
+#install_db
 
