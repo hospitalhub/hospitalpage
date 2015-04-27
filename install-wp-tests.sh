@@ -11,6 +11,8 @@ DB_PASS=$3
 DB_HOST=${4-localhost}
 WP_VERSION=${5-latest}
 
+echo "!!! n$DB_NAME u$DB_USER p$DB_PASS h$DB_HOST vWP_VERSION"
+
 WP_TESTS_DIR=${WP_TESTS_DIR-/tmp/wordpress-tests-lib}
 WP_CORE_DIR=/tmp/wordpress/
 
