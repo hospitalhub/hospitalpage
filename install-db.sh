@@ -1,8 +1,5 @@
 #!/bin/bash
 DIR=/var/www
-cd $DIR
-sudo cp resources/.env /root/.env
-sudo -u vagrant cp resources/.env /home/vagrant/.env
 cd $DIR/vendor/amarcinkowski/hospitalplugin/
 ../../bin/doctrine orm:schema-tool:create
 cd $DIR/wp-content/plugins/punction/
