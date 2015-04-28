@@ -5,13 +5,13 @@
 #	exit 1
 #fi
 
-DB_NAME=$1
-DB_USER=$2
-DB_PASS=$3
-DB_HOST=${4-localhost}
-WP_VERSION=${5-latest}
+#DB_NAME=$DB_NAME
+#DB_USER=$DB_USER
+#DB_PASSWORD=$3
+DB_HOST=localhost
+WP_VERSION=latest
 
-echo "!!! n$DB_NAME u$DB_USER p$DB_PASS h$DB_HOST vWP_VERSION"
+echo "!!! n$DB_NAME u$DB_USER p$DB_PASSWORD h$DB_HOST vWP_VERSION"
 
 WP_TESTS_DIR=${WP_TESTS_DIR-/tmp/wordpress-tests-lib}
 WP_CORE_DIR=/tmp/wordpress/
@@ -52,7 +52,7 @@ install_test_suite() {
 	sed $ioption "s:dirname( __FILE__ ) . '/src/':'$WP_CORE_DIR':" wp-tests-config.php
 	sed $ioption "s/youremptytestdbnamehere/$DB_NAME/" wp-tests-config.php
 	sed $ioption "s/yourusernamehere/$DB_USER/" wp-tests-config.php
-	sed $ioption "s/yourpasswordhere/$DB_PASS/" wp-tests-config.php
+	sed $ioption "s/yourpasswordhere/$DB_PASSWORD/" wp-tests-config.php
 	sed $ioption "s|localhost|${DB_HOST}|" wp-tests-config.php
 }
 
@@ -74,7 +74,7 @@ install_db() {
 	fi
 
 	# create database
-	mysqladmin create $DB_NAME --user="$DB_USER" --password="$DB_PASS"$EXTRA
+	mysqladmin create $DB_NAME --user="$DB_USER" --password="$DB_PASSWORD"$EXTRA
 }
 
 install_wp
