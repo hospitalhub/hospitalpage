@@ -6,5 +6,6 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 echo "composer config install"
 composer config -g github-oauth.github.com $1
 cd /var/www
-cp resources/.env .
+cp resources/.env /var/www/.env
+cp resources/.env /home/vagrant/.env
 composer install -o --prefer-dist --no-interaction -v
