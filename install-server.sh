@@ -4,24 +4,30 @@ DB_USER=root
 DB_PASSWORD=pass
 VAGRANT="vagrant-ubuntu-trusty-64"
 
+# Make sure only root can run our script
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
 # Install everything
 export DEBIAN_FRONTEND=noninteractive
 #echo "ubuntu apt get update"
-#sudo apt-get update 2>/dev/null 2>&1
+#apt-get update 2>/dev/null 2>&1
 echo "mysql"
-echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | sudo debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | sudo debconf-set-selections 
-sudo apt-get install -y mysql-server 2> /dev/null
-sudo apt-get install -y mysql-client 2> /dev/null
+echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | debconf-set-selections
+echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | debconf-set-selections 
+apt-get install -y mysql-server 2> /dev/null
+apt-get install -y mysql-client 2> /dev/null
 echo "installing apache2 php5..."
-sudo apt-get install -y apache2 php5 libapache2-mod-php5 php5-mysql php5-curl phpunit subversion nodejs git 2> /dev/null 2>&1
+apt-get install -y apache2 php5 libapache2-mod-php5 php5-mysql php5-curl phpunit subversion nodejs git 2> /dev/null 2>&1
 
 # Configure Apache
 WEBROOT="/var/www"
 CGIROOT=`dirname "$(which php-cgi)"`
 echo "WEBROOT: $WEBROOT"
 echo "CGIROOT: $CGIROOT"
-sudo echo "<VirtualHost *:80>
+echo "<VirtualHost *:80>
         DocumentRoot $WEBROOT
         <Directory />
                 Options FollowSymLinks
@@ -40,12 +46,12 @@ sudo echo "<VirtualHost *:80>
 		Action application/x-httpd-php5 '/local-bin/php-cgi'
 </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
-sudo a2enmod rewrite
-sudo a2enmod actions
-sudo service apache2 restart
+a2enmod rewrite
+a2enmod actions
+service apache2 restart
 
 # Configure custom domain
-echo "127.0.0.1 mydomain.local" | sudo tee --append /etc/hosts
+echo "127.0.0.1 mydomain.local" | tee --append /etc/hosts
 
 
 
@@ -64,7 +70,7 @@ if [ "$HOSTNAME" = "$VAGRANT" ]; then
 	echo "phpmyadmin phpmyadmin/mysql/admin-pass password $DB_PASSWORD" | debconf-set-selections
 	echo "phpmyadmin phpmyadmin/mysql/app-pass password $DB_PASSWORD" | debconf-set-selections
 	echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
-	sudo apt-get -y install phpmyadmin 
+	apt-get -y install phpmyadmin 
 	echo "phpmyadmin installed"
 else
 	echo "non-vagrant $HOSTNAME";
