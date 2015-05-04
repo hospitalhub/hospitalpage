@@ -19,6 +19,7 @@ echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | debconf-s
 echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | debconf-set-selections 
 apt-get install -y mysql-server 2> /dev/null
 apt-get install -y mysql-client 2> /dev/null
+
 echo "installing apache2 php5..."
 apt-get install -y apache2 php5 libapache2-mod-php5 php5-mysql php5-curl phpunit subversion nodejs git 2> /dev/null 2>&1
 
@@ -39,11 +40,11 @@ echo "<VirtualHost *:80>
                 Order allow,deny
                 allow from all
         </Directory>
-		# Configure PHP as CGI
-		ScriptAlias /local-bin $CGIROOT
-		DirectoryIndex index.php index.html
-		AddType application/x-httpd-php5 .php
-		Action application/x-httpd-php5 '/local-bin/php-cgi'
+    # Configure PHP as CGI
+    ScriptAlias /local-bin $CGIROOT
+    DirectoryIndex index.php index.html
+    AddType application/x-httpd-php5 .php
+    Action application/x-httpd-php5 '/local-bin/php-cgi'
 </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
 a2enmod rewrite
@@ -58,21 +59,25 @@ echo "127.0.0.1 mydomain.local" | tee --append /etc/hosts
 #=================================================================
 
 if [ -z "$TRAVIS_PHP_VERSION" ]; then
-	echo "non-travis";
+  echo "non-travis";
 else
-	echo "travis";
+  echo "travis";
 fi
 
 if [ "$HOSTNAME" = "$VAGRANT" ]; then
-	echo "phpmyadmin@vagrant"
-	echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | debconf-set-selections
-	echo "phpmyadmin phpmyadmin/app-password-confirm password $DB_PASSWORD" | debconf-set-selections
-	echo "phpmyadmin phpmyadmin/mysql/admin-pass password $DB_PASSWORD" | debconf-set-selections
-	echo "phpmyadmin phpmyadmin/mysql/app-pass password $DB_PASSWORD" | debconf-set-selections
-	echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
-	apt-get -y install phpmyadmin 
-	echo "phpmyadmin installed"
+  echo "make mysql accessible from outside of localhost"
+  sed -i.bak s/skip-external-locking/#/g /etc/mysql/my.cnf
+  sed -i.bak s/bind-address/#/g /etc/mysql/my.cnf
+  mysql -u root -p$DB_PASSWORD hospital -e "grant all privileges on *.* to 'root'@'%' identified by '$DB_PASSWORD'; flush privileges;";
+  echo "phpmyadmin@vagrant"
+  echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | debconf-set-selections
+  echo "phpmyadmin phpmyadmin/app-password-confirm password $DB_PASSWORD" | debconf-set-selections
+  echo "phpmyadmin phpmyadmin/mysql/admin-pass password $DB_PASSWORD" | debconf-set-selections
+  echo "phpmyadmin phpmyadmin/mysql/app-pass password $DB_PASSWORD" | debconf-set-selections
+  echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
+  apt-get -y install phpmyadmin 
+  echo "phpmyadmin installed"
 else
-	echo "non-vagrant $HOSTNAME";
+  echo "non-vagrant $HOSTNAME";
 fi
 
