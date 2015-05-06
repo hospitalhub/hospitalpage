@@ -68,7 +68,7 @@ if [ "$HOSTNAME" = "$VAGRANT" ]; then
   echo "make mysql accessible from outside of localhost"
   sed -i.bak s/skip-external-locking/#/g /etc/mysql/my.cnf
   sed -i.bak s/bind-address/#/g /etc/mysql/my.cnf
-  mysql -u root -p$DB_PASSWORD hospital -e "grant all privileges on *.* to 'root'@'%' identified by '$DB_PASSWORD'; flush privileges;";
+  mysql -u root -p$DB_PASSWORD -e "grant all privileges on *.* to 'root'@'%' identified by '$DB_PASSWORD'; flush privileges;";
   sudo service mysql restart
   echo "phpmyadmin@vagrant"
   echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | debconf-set-selections
