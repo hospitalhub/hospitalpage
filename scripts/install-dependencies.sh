@@ -5,6 +5,9 @@ echo "adding github keys"
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 echo "composer config install"
 composer config -g github-oauth.github.com $1
+if [ "$USER" = "vagrant" ]; then
+  composer config --global cache-dir /vagrant/cache/composer
+fi
 cd /var/www
 cp resources/.env /var/www/.env
 cp resources/.env /home/vagrant/.env

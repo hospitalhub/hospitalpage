@@ -2,7 +2,6 @@
 
 DB_USER=root
 DB_PASSWORD=pass
-VAGRANT="vagrant-ubuntu-trusty-64"
 
 # Make sure only root can run our script
 if [ "$(id -u)" != "0" ]; then
@@ -64,7 +63,7 @@ else
   echo "travis";
 fi
 
-if [ "$HOSTNAME" = "$VAGRANT" ]; then
+if [ "$USER" = "vagrant" ]; then
   echo "make mysql accessible from outside of localhost"
   sed -i.bak s/skip-external-locking/#/g /etc/mysql/my.cnf
   sed -i.bak s/bind-address/#/g /etc/mysql/my.cnf
