@@ -2,6 +2,7 @@
 cd /var/www
 wp db create
 wp core install --url=127.0.0.1 --title=x --admin_user=root --admin_email=x@x.w --admin_password=pass
+wp core language activate pl_PL
 wp plugin activate --all
 wp theme activate responsive-child
 wp cap add administrator raport_zakazne
