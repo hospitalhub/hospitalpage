@@ -8,6 +8,7 @@ if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
+echo "running install server"
 
 # Install everything
 export DEBIAN_FRONTEND=noninteractive
@@ -78,6 +79,6 @@ if [ "$USER" == "vagrant" ]; then
   apt-get -y install phpmyadmin 
   echo "phpmyadmin installed"
 else
-  echo "non-vagrant $HOSTNAME";
+  echo "non-vagrant $HOSTNAME $USER";
 fi
 
