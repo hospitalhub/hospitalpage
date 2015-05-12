@@ -64,7 +64,7 @@ else
   echo "travis";
 fi
 
-if [ "$USER" == "vagrant" ]; then
+if [ -d "/home/vagrant" ]; then
   echo "make mysql accessible from outside of localhost"
   sed -i.bak s/skip-external-locking/#/g /etc/mysql/my.cnf
   sed -i.bak s/bind-address/#/g /etc/mysql/my.cnf
