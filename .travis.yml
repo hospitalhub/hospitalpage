@@ -2,11 +2,11 @@ language: php
 php:
   - "5.5"
 before_script:
-  - ./install-dependencies.sh
-  - ./install-wp-tests.sh wordpress_test root '' localhost latest
+  - scripts/install-dependencies.sh
+  - scripts/install-wp-tests.sh wordpress_test root '' localhost latest
   - cp resources/.env .
   - composer install -vv
-  - ./selenium.sh
+  - scripts/selenium.sh
   - mkdir -p build/logs
 script:
   - phpunit -c phpunit-wpdb.xml
