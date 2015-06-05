@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 
-DB_USER=root
-DB_PASSWORD=pass
-
 # Make sure only root can run our script
 if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
-   exit 1
 fi
 echo "running install server"
 
@@ -14,21 +10,24 @@ echo "running install server"
 export DEBIAN_FRONTEND=noninteractive
 #echo "ubuntu apt get update"
 #apt-get update 2>/dev/null 2>&1
-echo "mysql"
-echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | debconf-set-selections 
-apt-get install -y mysql-server 2> /dev/null
-apt-get install -y mysql-client 2> /dev/null
 
-echo "installing apache2 php5..."
-apt-get install -y apache2 php5 libapache2-mod-php5 php5-mysql php5-curl phpunit subversion nodejs git 2> /dev/null 2>&1
+function mysql {
+  echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | debconf-set-selections
+  echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | debconf-set-selections 
+  apt-get install -y mysql-server 2> /dev/null
+  apt-get install -y mysql-client 2> /dev/null
+}
 
-# Configure Apache
-WEBROOT="/var/www"
-CGIROOT=`dirname "$(which php-cgi)"`
-echo "WEBROOT: $WEBROOT"
-echo "CGIROOT: $CGIROOT"
-echo "<VirtualHost *:80>
+function apache {
+  echo "installing apache2 php5..."
+  apt-get install -y apache2 php5 libapache2-mod-php5 php5-mysql php5-curl phpunit subversion nodejs git 2> /dev/null 2>&1
+
+  # Configure Apache
+  WEBROOT="/var/www"
+  CGIROOT=`dirname "$(which php-cgi)"`
+  echo "WEBROOT: $WEBROOT"
+  echo "CGIROOT: $CGIROOT"
+  echo "<VirtualHost *:80>
         DocumentRoot $WEBROOT
         <Directory />
                 Options FollowSymLinks
@@ -45,26 +44,16 @@ echo "<VirtualHost *:80>
     DirectoryIndex index.php index.html
     AddType application/x-httpd-php5 .php
     Action application/x-httpd-php5 '/local-bin/php-cgi'
-</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
+  </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
-a2enmod rewrite
-a2enmod actions
-service apache2 restart
+  a2enmod rewrite
+  a2enmod actions
+  service apache2 restart
+  # Configure custom domain
+  echo "127.0.0.1 mydomain.local" | tee --append /etc/hosts
+}
 
-# Configure custom domain
-echo "127.0.0.1 mydomain.local" | tee --append /etc/hosts
-
-
-
-#=================================================================
-
-if [ -z "$TRAVIS_PHP_VERSION" ]; then
-  echo "non-travis";
-else
-  echo "travis";
-fi
-
-if [ -d "/home/vagrant" ]; then
+function phpmyadmin_at_vagrant {
   echo "make mysql accessible from outside of localhost"
   sed -i.bak s/skip-external-locking/#/g /etc/mysql/my.cnf
   sed -i.bak s/bind-address/#/g /etc/mysql/my.cnf
@@ -78,6 +67,24 @@ if [ -d "/home/vagrant" ]; then
   echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
   apt-get -y install phpmyadmin 
   echo "phpmyadmin installed"
+}
+
+#=================================================================
+if [ -z "$TRAVIS_PHP_VERSION" ]; then
+  echo "non-travis";
+  export DB_USER=root
+  export DB_PASSWORD=pass
+  mysql
+  apache
+else
+  echo "travis";
+  export DB_USER=root
+  export DB_PASSWORD=
+  apache
+fi
+
+if [ -d "/home/vagrant" ]; then
+  phpmyadmin_at_vagrant
 else
   echo "non-vagrant $HOSTNAME $USER";
 fi
