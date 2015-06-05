@@ -11,7 +11,7 @@
 DB_HOST=localhost
 WP_VERSION=latest
 
-echo "!!! n$DB_NAME u$DB_USER p$DB_PASSWORD h$DB_HOST vWP_VERSION"
+echo "!!! n$DB_NAME u$DB_USER p$DB_PASSWORD h$DB_HOST v$WP_VERSION"
 
 WP_TESTS_DIR=${WP_TESTS_DIR-/tmp/wordpress-tests-lib}
 WP_CORE_DIR=/tmp/wordpress/

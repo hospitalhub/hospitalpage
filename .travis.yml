@@ -2,6 +2,7 @@ language: php
 php:
   - "5.5"
 before_script:
+  - scripts/install-server.sh
   - scripts/install-dependencies.sh
   - scripts/install-wp-tests.sh wordpress_test root '' localhost latest
   - cp resources/.env .
