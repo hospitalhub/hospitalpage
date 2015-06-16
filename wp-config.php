@@ -44,7 +44,7 @@ define('NONCE_SALT', getenv('NONCE_SALT'));
 $table_prefix = 'wp_';
 
 define( 'WP_ALLOW_MULTISITE', true );
-define('MULTISITE', true);
+define('MULTISITE', getenv('MULTISITE'));
 define('SUBDOMAIN_INSTALL', false);
 $base = '/';
 define('DOMAIN_CURRENT_SITE', WP_ADDR);
