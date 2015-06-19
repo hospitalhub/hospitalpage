@@ -37,16 +37,13 @@ if [ -z "$TRAVIS_PHP_VERSION" ]; then
   # apache conf
   export DB_USER=root
   export DB_PASSWORD=pass
+  apt-get update 2>/dev/null 2>&1
   mysql
   echo "installing apache2 php5..."
-  sudo echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty multiverse
-  deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates multiverse" > /etc/apt/sources.list
-  apt-get update 2>/dev/null 2>&1
   apt-get install -y php5 php5-fpm php5-mysql php5-curl phpunit subversion nodejs git 2>&1
   apt-get install -y apache2 2> /dev/null 2>&1
-  echo "LIBAPACHE2-MOD-PHP"
-  apt-get install -y libapache2-mod-php5
-  sudo cp resources/vagrant-apache /etc/apache2/sites-available/000-default.conf
+# apt-get install -y libapache2-mod-php5
+  sudo cp /var/www/resources/vagrant-apache /etc/apache2/sites-available/000-default.conf
   a2enmod rewrite actions
   service apache2 restart
   # non-travis vagrant phpmyadmin
