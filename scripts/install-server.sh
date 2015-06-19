@@ -46,7 +46,7 @@ deb http://security.ubuntu.com/ubuntu trusty-security multiverse" >> /etc/apt/so
   apt-get install -y php5 php5-fpm php5-mysql php5-curl phpunit subversion nodejs git 2>/dev/null 2>&1
   apt-get install -y apache2 apache2-mpm-worker 2> /dev/null 2>&1
   # multiverse (libapache2-mod-php5)
-  apt-get install -y libapache2-mod-php5
+  apt-get install -y libapache2-mod-fastcgi
   cp /var/www/resources/vagrant-apache /etc/apache2/sites-available/000-default.conf
   a2dismod php5 mpm_prefork
   a2enmod fastcgi rewrite actions alias mpm_worker
