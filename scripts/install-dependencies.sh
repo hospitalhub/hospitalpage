@@ -9,9 +9,5 @@ if [ "$USER" = "vagrant" ]; then
   composer config --global cache-dir /vagrant/cache/composer
   cp resources/.env /home/vagrant/.env
 fi
-if [ ! -d /var/www ]; then
-    mkdir -p /var/www;
-fi;
-cd /var/www
-cp resources/.env /var/www/.env
+cp ./resources/.env ~/.env
 composer install -o --prefer-dist --no-interaction -v
