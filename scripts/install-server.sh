@@ -40,10 +40,34 @@ if [ -z "$TRAVIS_PHP_VERSION" ]; then
   apt-get update 2>/dev/null 2>&1
   mysql
   echo "installing apache2 php5..."
-  apt-get install -y php5 php5-fpm php5-mysql php5-curl phpunit subversion nodejs git 2>&1
+  apt-get install -y php5 php5-mysql php5-curl phpunit subversion nodejs git 2>&1
   apt-get install -y apache2 2> /dev/null 2>&1
 # apt-get install -y libapache2-mod-php5
-  sudo cp /var/www/resources/vagrant-apache /etc/apache2/sites-available/000-default.conf
+# apt-get install php5-fpm
+  
+# Configure Apache
+  WEBROOT="/var/www"
+  CGIROOT=`dirname "$(which php-cgi)"`
+  echo "WEBROOT: $WEBROOT"
+  echo "CGIROOT: $CGIROOT"
+  echo "<VirtualHost *:80>
+        DocumentRoot $WEBROOT
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride All
+        </Directory>
+        <Directory $WEBROOT >
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+        </Directory>
+    # Configure PHP as CGI
+    ScriptAlias /local-bin $CGIROOT
+    DirectoryIndex index.php index.html
+    AddType application/x-httpd-php5 .php
+    Action application/x-httpd-php5 '/local-bin/php-cgi'
+  </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
   a2enmod rewrite actions
   service apache2 restart
   # non-travis vagrant phpmyadmin
@@ -60,7 +84,6 @@ else
   ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   export DB_USER=root
   export DB_PASSWORD=
-  // fpm
   sudo a2enmod rewrite actions fastcgi alias
   sudo service apache2 restart
 fi
