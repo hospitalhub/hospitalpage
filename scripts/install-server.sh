@@ -18,15 +18,19 @@ function mysql {
   apt-get install -y mysql-client 2> /dev/null
 }
 
+function php5 {
+  sudo apt-get install -y php5 php5-mysql php5-curl phpunit subversion nodejs git 2>&1
+}
+
 function apache {
   echo "installing apache2 php5..."
-  apt-get install -y apache2 php5 libapache2-mod-php5 php5-mysql php5-curl phpunit subversion nodejs git 2> /dev/null 2>&1
+  sudo apt-get install -y apache2 libapache2-mod-php5 2> /dev/null 2>&1
 
   # Configure Apache
-  WEBROOT="/var/www"
+  WEBROOT="%WEBROOT%"
   CGIROOT=`dirname "$(which php-cgi)"`
   echo "WEBROOT: $WEBROOT"
-  echo "CGIROOT: $CGIROOT"
+ # echo "CGIROOT: $CGIROOT"
   echo "<VirtualHost *:80>
         DocumentRoot $WEBROOT
         <Directory />
@@ -34,23 +38,27 @@ function apache {
                 AllowOverride All
         </Directory>
         <Directory $WEBROOT >
-                Options Indexes FollowSymLinks MultiViews
+                Options Indexes FollowSymLinks MultiViews ExecCGI
                 AllowOverride All
                 Order allow,deny
-                allow from all
+                Allow from all
         </Directory>
-    # Configure PHP as CGI
-    ScriptAlias /local-bin $CGIROOT
-    DirectoryIndex index.php index.html
-    AddType application/x-httpd-php5 .php
-    Action application/x-httpd-php5 '/local-bin/php-cgi'
-  </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
+        <IfModule mod_fastcgi.c>
+          AddHandler php5-fcgi .php
+          Action php5-fcgi /php5-fcgi
+          Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
+          FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -host 127.0.0.1:9000 -pass-header Authorization
+        </IfModule>        
+        
+        # Configure PHP as CGI
+#        ScriptAlias /local-bin $CGIROOT
+#        DirectoryIndex index.php index.html
+#        AddType application/x-httpd-php5 .php
+#        Action application/x-httpd-php5 '/local-bin/php-cgi'
+        </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
-  a2enmod rewrite
-  a2enmod actions
-  service apache2 restart
-  # Configure custom domain
-  echo "127.0.0.1 mydomain.local" | tee --append /etc/hosts
+  sudo a2enmod rewrite actions fastcgi alias
+  sudo service apache2 restart
 }
 
 function phpmyadmin_at_vagrant {
@@ -72,20 +80,27 @@ function phpmyadmin_at_vagrant {
 #=================================================================
 if [ -z "$TRAVIS_PHP_VERSION" ]; then
   echo "non-travis";
+  # Configure custom domain
+  echo "127.0.0.1 mydomain.local" | tee --append /etc/hosts
+  # apache conf
   export DB_USER=root
   export DB_PASSWORD=pass
   mysql
+  php5
   apache
+  sudo sed -e "s?%WEBROOT%?/var/www?g" --in-place /etc/apache2/sites-available/000-default.conf
+  # non-travis vagrant phpmyadmin
+  if [ -d "/home/vagrant" ]; then
+    phpmyadmin_at_vagrant
+  else
 else
-  echo "travis";
+  echo "travis conf";
+  sudo touch /etc/apache2/sites-available/000-default.conf
+  sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+  echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   export DB_USER=root
   export DB_PASSWORD=
-  apache
-fi
-
-if [ -d "/home/vagrant" ]; then
-  phpmyadmin_at_vagrant
-else
-  echo "non-vagrant $HOSTNAME $USER";
+  sudo sed -e "s?%WEBROOT%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
 fi
 
