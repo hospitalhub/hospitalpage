@@ -19,7 +19,7 @@ function mysql {
 }
 
 function php5 {
-  sudo apt-get install -y php5 php5-mysql php5-curl phpunit subversion nodejs git 2>&1
+  sudo apt-get install -y php5 php5-fpm php5-mysql php5-curl phpunit subversion nodejs git 2>&1
 }
 
 function apache {
@@ -95,12 +95,12 @@ if [ -z "$TRAVIS_PHP_VERSION" ]; then
   fi
 else
   echo "travis conf";
-  sudo touch /etc/apache2/sites-available/000-default.conf
   sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   export DB_USER=root
   export DB_PASSWORD=
+  apache
   sudo sed -e "s?%WEBROOT%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
 fi
 
