@@ -50,8 +50,8 @@ deb http://security.ubuntu.com/ubuntu trusty-security multiverse" >> /etc/apt/so
   cp /var/www/resources/vagrant-apache /etc/apache2/sites-available/000-default.conf
   a2dismod php5 mpm_prefork
   a2enmod fastcgi rewrite actions alias mpm_worker
-  sodo touch /usr/lib/cgi-bin/php5.fcgi
-  sudo chown -R www-data:www-data /usr/lib/cgi-bin
+  sudo touch /usr/lib/cgi-bin/php5.fcgi
+  sudo chown -R www-data: /usr/lib/cgi-bin
   sudo echo "<IfModule mod_fastcgi.c> 
    AddHandler php5.fcgi .php 
    Action php5.fcgi /php5.fcgi 
