@@ -43,16 +43,16 @@ deb http://security.ubuntu.com/ubuntu trusty-security multiverse" >> /etc/apt/so
   apt-get update 2>/dev/null 2>&1
   mysql
   echo "installing apache2 php5..."
-  apt-get install -y php5 php5-mysql php5-curl phpunit subversion nodejs git 2>/dev/null 2>&1
-  apt-get install -y apache2 2> /dev/null 2>&1
+  apt-get install -y php5 php5-fpm php5-mysql php5-curl phpunit subversion nodejs git 2>/dev/null 2>&1
+  apt-get install -y apache2 apache2-mpm-worker 2> /dev/null 2>&1
   # multiverse (libapache2-mod-php5)
-  apt-get install -y libapache2-mod-php5 php5-fpm apache2-mpm-event apache2-mpm-worker
+  apt-get install -y libapache2-mod-php5
   cp /var/www/resources/vagrant-apache /etc/apache2/sites-available/000-default.conf
   a2dismod php5 mpm_prefork
   a2enmod fastcgi rewrite actions alias mpm_worker
-  touch /usr/lib/cgi-bin/php5.fcgi
-  chown -R www-data:www-data /usr/lib/cgi-bin
-  echo "<IfModule mod_fastcgi.c> 
+  sodo touch /usr/lib/cgi-bin/php5.fcgi
+  sudo chown -R www-data:www-data /usr/lib/cgi-bin
+  sudo echo "<IfModule mod_fastcgi.c> 
    AddHandler php5.fcgi .php 
    Action php5.fcgi /php5.fcgi 
    Alias /php5.fcgi /usr/lib/cgi-bin/php5.fcgi 
