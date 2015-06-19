@@ -11,7 +11,7 @@
                 allow from all
         </Directory>
     # Configure PHP as CGI
-    ScriptAlias /local-bin /usr/bin/php5-cgi
+    ScriptAlias /local-bin /usr/bin
     DirectoryIndex index.php index.html
     AddType application/x-httpd-php5 .php
     Action application/x-httpd-php5 '/local-bin/php-cgi'
