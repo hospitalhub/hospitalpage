@@ -57,8 +57,6 @@ function apache {
 #        Action application/x-httpd-php5 '/local-bin/php-cgi'
         </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
-  sudo a2enmod rewrite actions fastcgi alias
-  sudo service apache2 restart
 }
 
 function phpmyadmin_at_vagrant {
@@ -95,6 +93,7 @@ if [ -z "$TRAVIS_PHP_VERSION" ]; then
   fi
 else
   echo "travis conf";
+  sudo apt-get update
   sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
@@ -104,3 +103,5 @@ else
   sudo sed -e "s?%WEBROOT%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
 fi
 
+sudo a2enmod rewrite actions fastcgi alias
+sudo service apache2 restart
