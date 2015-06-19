@@ -31,17 +31,17 @@ function apache {
   CGIROOT=`dirname "$(which php-cgi)"`
   echo "WEBROOT: $WEBROOT"
  # echo "CGIROOT: $CGIROOT"
-  echo "<VirtualHost *:80>
+  sudo echo "<VirtualHost *:80>
         DocumentRoot $WEBROOT
         <Directory />
-                Options FollowSymLinks
-                AllowOverride All
+          Options FollowSymLinks
+          AllowOverride All
         </Directory>
         <Directory $WEBROOT >
-                Options Indexes FollowSymLinks MultiViews ExecCGI
-                AllowOverride All
-                Order allow,deny
-                Allow from all
+          Options Indexes FollowSymLinks MultiViews ExecCGI
+          AllowOverride All
+          Order allow,deny
+          Allow from all
         </Directory>
         <IfModule mod_fastcgi.c>
           AddHandler php5-fcgi .php
