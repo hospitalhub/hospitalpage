@@ -2,12 +2,7 @@ language: php
 php:
   - "5.5"
 env:
-  - HOSPITAL_HOST="http://127.0.0.1"
-  - HTTP_HOST="http://127.0.0.1"
-  - DB_HOST=127.0.0.1
-  - DB_NAME=hospital
-  - DB_USER=root
-  - DB_PASSWORD=
+  - HOSPITAL_HOST="http://127.0.0.1" HTTP_HOST="http://127.0.0.1" DB_HOST=127.0.0.1 DB_NAME=hospital DB_USER=root DB_PASSWORD=
 before_script:
   - scripts/install-server.sh
   - scripts/install-dependencies.sh
