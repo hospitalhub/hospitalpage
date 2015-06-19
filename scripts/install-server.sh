@@ -37,7 +37,7 @@ if [ -z "$TRAVIS_PHP_VERSION" ]; then
   # apache conf
   export DB_USER=root
   export DB_PASSWORD=pass
-    sudo "deb http://archive.ubuntu.com/ubuntu trusty multiverse
+  sudo echo "deb http://archive.ubuntu.com/ubuntu trusty multiverse
 deb http://archive.ubuntu.com/ubuntu trusty-updates multiverse
 deb http://security.ubuntu.com/ubuntu trusty-security multiverse" >> /etc/apt/sources.list
   apt-get update 2>/dev/null 2>&1
