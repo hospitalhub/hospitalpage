@@ -1,12 +1,20 @@
 language: php
 php:
   - "5.5"
-sudo: require
+env:
+  - HOSPITAL_HOST="http://127.0.0.1"
+  - HTTP_HOST="http://127.0.0.1"
+  - DB_HOST=127.0.0.1
+  - DB_NAME=hospital
+  - DB_USER=root
+  - DB_PASSWORD=
 before_script:
   - scripts/install-server.sh
   - scripts/install-dependencies.sh
+#  - cp resources/.env .
+#  - cp resources/.env ~
+  - wp db create
   - scripts/install-wp-tests.sh wordpress_test root '' localhost latest
-  - cp resources/.env .
   - scripts/selenium.sh
   - mkdir -p build/logs
 script:
