@@ -55,7 +55,7 @@ function apache {
 #        DirectoryIndex index.php index.html
 #        AddType application/x-httpd-php5 .php
 #        Action application/x-httpd-php5 '/local-bin/php-cgi'
-        </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
+        </VirtualHost>" > /etc/apache2/sites-available/$1
 
 }
 
@@ -85,22 +85,22 @@ if [ -z "$TRAVIS_PHP_VERSION" ]; then
   export DB_PASSWORD=pass
   mysql
   php5
-  apache
+  apache 000-default.conf
   sudo sed -e "s?%WEBROOT%?/var/www?g" --in-place /etc/apache2/sites-available/000-default.conf
   # non-travis vagrant phpmyadmin
   if [ -d "/home/vagrant" ]; then
     phpmyadmin_at_vagrant
   fi
 else
-  echo "travis conf";
+  echo "@travis";
   sudo apt-get update
   sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   export DB_USER=root
   export DB_PASSWORD=
-  apache
-  sudo sed -e "s?%WEBROOT%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
+  apache default.conf
+  sudo sed -e "s?%WEBROOT%?$(pwd)?g" --in-place /etc/apache2/sites-available/default.conf
 fi
 
 sudo a2enmod rewrite actions fastcgi alias
