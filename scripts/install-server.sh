@@ -92,7 +92,7 @@ if [ -z "$TRAVIS_PHP_VERSION" ]; then
   # non-travis vagrant phpmyadmin
   if [ -d "/home/vagrant" ]; then
     phpmyadmin_at_vagrant
-  else
+  fi
 else
   echo "travis conf";
   sudo touch /etc/apache2/sites-available/000-default.conf
