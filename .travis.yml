@@ -14,10 +14,6 @@ before_script:
   - mkdir -p build/logs
 script:
   - phpunit -c phpunit-wpdb.xml
-  - curl -s http://localhost/ && sudo cat /var/log/apache2/error.log && curl -s http://localhost/ | grep -F "hello world! $TRAVIS_PHP_VERSION" && curl -s http://localhost/non_existing_url_is_redirected | grep -F "hello world! $TRAVIS_PHP_VERSION" && curl -s http://mydomain.local/ | grep -F "hello world! $TRAVIS_PHP_VERSION"
   - composer behat
 after_script:
   - curl 127.0.0.1
-  - curl 127.0.0.1/wp
-  - curl 127.0.0.1/selenium.sh
-  
