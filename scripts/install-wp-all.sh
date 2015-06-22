@@ -1,11 +1,13 @@
 #!/bin/bash
 if [ -z "$TRAVIS_PHP_VERSION" ]; then
   export WP_ADDR='127.0.0.1:8000';
-  echo "non-travis vagrant WP_ADDR $WP_ADDR";
+  export PLATFORM='vagrant (non-travis)'
+  cd /var/www
 else
   export WP_ADDR='127.0.0.1';
-  echo "travis WP_ADDR $WP_ADDR";
+  export PLATFORM='travis-ci'
 fi
+echo "PLATFORM:$PLATFORM WP_ADDR:$WP_ADDR PWD:$pwd";
 sed -i.bak "s/DOMAIN_CURRENT_SITE', WP_ADDR/DOMAIN_CURRENT_SITE', '$WP_ADDR'/g" wp-config.php
 wp db create
 wp core multisite-install --url=127.0.0.1 --base=127.0.0.1 --title=x --admin_user=root --admin_email=x@x.w --admin_password=pass
