@@ -6,6 +6,7 @@ env:
 before_script:
   - scripts/install-server.sh
   - scripts/install-dependencies.sh
+  - scripts/install-wp-cli.sh
 #  - cp resources/.env .
 #  - cp resources/.env ~
   - wp db create
