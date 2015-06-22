@@ -7,8 +7,7 @@ before_script:
   - scripts/install-server.sh
   - scripts/install-dependencies.sh
   - scripts/install-wp-cli.sh
-  - cp resources/.env .
-#  - cp resources/.env ~
+  - cp resources/.env.travis .env
   - wp db create
   - scripts/install-wp-tests.sh wordpress_test root '' localhost latest
   - scripts/selenium.sh
