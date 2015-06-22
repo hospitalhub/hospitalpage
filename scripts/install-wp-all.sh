@@ -1,9 +1,9 @@
 #!/bin/bash
 if [ -z "$TRAVIS_PHP_VERSION" ]; then
-  WP_ADDR = '127.0.0.1:8000';
+  export WP_ADDR = '127.0.0.1:8000';
   echo "non-travis vagrant WP_ADDR $WP_ADDR";
 else
-  WP_ADDR = '127.0.0.1';
+  export WP_ADDR = '127.0.0.1';
   echo "travis WP_ADDR $WP_ADDR";
 fi
 sed -i.bak "s/DOMAIN_CURRENT_SITE', WP_ADDR/DOMAIN_CURRENT_SITE', '$WP_ADDR'/g" wp-config.php
