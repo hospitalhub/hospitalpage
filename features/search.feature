@@ -4,7 +4,7 @@ Feature: Search
   As a website user
   I need to be able to search for a word
 
-  @javascript
+#  @javascript
   Scenario: Searching for a page that does exist
     Given I am on "/wiki/Main_Page"
     When I fill in "search" with "Behavior Driven Development"
