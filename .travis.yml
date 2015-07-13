@@ -1,6 +1,8 @@
 language: php
 php:
   - "5.5"
+cache:
+  - apt
 env:
   - HOSPITAL_HOST="http://127.0.0.1" HTTP_HOST="http://127.0.0.1" DB_HOST=127.0.0.1 DB_NAME=hospital DB_USER=root DB_PASSWORD=
 before_script:
