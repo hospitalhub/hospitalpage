@@ -15,6 +15,6 @@ sh -e /etc/init.d/xvfb start
 echo "xvfb ready"
 sleep 2 
 mkdir -p build/logs
-java -jar vendor/netwing/selenium-server-standalone/selenium-server-standalone.jar & #2>build/logs/selenium.log &
+java -jar vendor/netwing/selenium-server-standalone/selenium-server-standalone-2.43.0.jar & #2>build/logs/selenium.log &
 echo "selenium running"
 sleep 2

@@ -11,7 +11,7 @@ class IntegrationTest extends PHPUnit_Extensions_Selenium2TestCase {
 	 *
 	 * @var unknown
 	 */
-	const BROWSER = "firefox"; // "phantomjs";
+	const BROWSER = "phantomjs"; // "phantomjs";
 	
 	/**
 	 *
