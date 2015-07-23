@@ -6,12 +6,15 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 echo "composer config install"
 composer config -g github-oauth.github.com $1
 if [ "$USER" = "vagrant" ]; then
+  echo "@VAGRANT dependencies"
   composer config --global cache-dir /vagrant/cache/composer
   cp resources/.env /home/vagrant/.env
-fi
-if [ ! -d /var/www ]; then
+  if [ ! -d /var/www ]; then
     mkdir -p /var/www;
-fi;
-cd /var/www
-cp resources/.env /var/www/.env
+  fi;
+  cd /var/www
+  cp resources/.env /var/www/.env
+else
+  echo "@TRAVIS dependencies dir: $PWD $(pwd)"
+fi
 composer install -o --prefer-dist --no-interaction -v

@@ -6,51 +6,13 @@ if [ "$(id -u)" != "0" ]; then
 fi
 echo "running install server"
 
-# Install everything
 export DEBIAN_FRONTEND=noninteractive
-#echo "ubuntu apt get update"
-#apt-get update 2>/dev/null 2>&1
 
 function mysql {
   echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | debconf-set-selections
   echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | debconf-set-selections 
   apt-get install -y mysql-server 2> /dev/null
   apt-get install -y mysql-client 2> /dev/null
-}
-
-function apache {
-  echo "installing apache2 php5..."
-  apt-get install -y apache2 php5 libapache2-mod-php5 php5-mysql php5-curl phpunit subversion nodejs git 2> /dev/null 2>&1
-
-  # Configure Apache
-  WEBROOT="/var/www"
-  CGIROOT=`dirname "$(which php-cgi)"`
-  echo "WEBROOT: $WEBROOT"
-  echo "CGIROOT: $CGIROOT"
-  echo "<VirtualHost *:80>
-        DocumentRoot $WEBROOT
-        <Directory />
-                Options FollowSymLinks
-                AllowOverride All
-        </Directory>
-        <Directory $WEBROOT >
-                Options Indexes FollowSymLinks MultiViews
-                AllowOverride All
-                Order allow,deny
-                allow from all
-        </Directory>
-    # Configure PHP as CGI
-    ScriptAlias /local-bin $CGIROOT
-    DirectoryIndex index.php index.html
-    AddType application/x-httpd-php5 .php
-    Action application/x-httpd-php5 '/local-bin/php-cgi'
-  </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
-
-  a2enmod rewrite
-  a2enmod actions
-  service apache2 restart
-  # Configure custom domain
-  echo "127.0.0.1 mydomain.local" | tee --append /etc/hosts
 }
 
 function phpmyadmin_at_vagrant {
@@ -72,20 +34,54 @@ function phpmyadmin_at_vagrant {
 #=================================================================
 if [ -z "$TRAVIS_PHP_VERSION" ]; then
   echo "non-travis";
+  # apache conf
   export DB_USER=root
   export DB_PASSWORD=pass
+  sudo echo "deb http://archive.ubuntu.com/ubuntu trusty multiverse
+deb http://archive.ubuntu.com/ubuntu trusty-updates multiverse
+deb http://security.ubuntu.com/ubuntu trusty-security multiverse" >> /etc/apt/sources.list
+  apt-get update 2>/dev/null 2>&1
   mysql
-  apache
+  echo "installing apache2 php5..."
+  apt-get install -y php5 php5-fpm php5-mysql php5-curl phpunit subversion nodejs git 2>/dev/null 2>&1
+  apt-get install -y apache2 apache2-mpm-worker 2> /dev/null 2>&1
+  # multiverse (libapache2-mod-php5)
+  apt-get install -y libapache2-mod-fastcgi
+  cp /var/www/resources/vagrant-apache /etc/apache2/sites-available/000-default.conf
+  a2dismod php5 mpm_prefork
+  a2enmod fastcgi rewrite actions alias mpm_worker
+  sudo touch /usr/lib/cgi-bin/php5.fcgi
+  sudo chown -R www-data: /usr/lib/cgi-bin
+  sudo echo "<IfModule mod_fastcgi.c> 
+   AddHandler php5.fcgi .php 
+   Action php5.fcgi /php5.fcgi 
+   Alias /php5.fcgi /usr/lib/cgi-bin/php5.fcgi 
+   FastCgiExternalServer /usr/lib/cgi-bin/php5.fcgi -socket /var/run/php5-fpm.sock -pass-header Authorization -idle-timeout 3600 
+   <Directory /usr/lib/cgi-bin>
+       Require all granted
+   </Directory> 
+</IfModule>" > /etc/apache2/conf-available/php5-fpm.conf
+  a2enconf php5-fpm
+  service apache2 restart && sudo service php5-fpm restart
+  # non-travis vagrant phpmyadmin
+  if [ -d "/home/vagrant" ]; then
+    phpmyadmin_at_vagrant
+  fi
+  # Configure custom domain
+  echo "127.0.0.1 mydomain.local" | tee --append /etc/hosts
 else
-  echo "travis";
+  echo "@travis";
   export DB_USER=root
   export DB_PASSWORD=
-  apache
+  sudo apt-get update
+  sudo apt-get install apache2 libapache2-mod-fastcgi
+  # enable php-fpm
+  sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+  sudo a2enmod rewrite actions fastcgi alias
+  echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+  # configure apache virtual hosts
+  sudo cp -f resources/travis-ci-apache /etc/apache2/sites-available/default
+  sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
+  sudo service apache2 restart
 fi
-
-if [ -d "/home/vagrant" ]; then
-  phpmyadmin_at_vagrant
-else
-  echo "non-vagrant $HOSTNAME $USER";
-fi
-
