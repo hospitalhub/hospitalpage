@@ -1,7 +1,7 @@
 language: php
+sudo: require
 php:
   - "5.5"
-sudo: require
 cache:
   - apt
 env:
