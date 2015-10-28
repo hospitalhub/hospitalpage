@@ -1,6 +1,7 @@
 #!/bin/bash
 DIR=/var/www
 cd $DIR/vendor/amarcinkowski/hospitalplugin/
+chmod +x /var/www/vendor/doctrine/orm/bin/doctrine
 ../../bin/doctrine orm:schema-tool:create
 cd $DIR/wp-content/plugins/punction/
 ../../../vendor/bin/doctrine orm:schema-tool:create
