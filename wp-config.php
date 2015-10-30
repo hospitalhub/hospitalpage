@@ -23,7 +23,7 @@ define('WP_SITEURL', WP_ADDR . '/wp/');
 define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
 define('WP_CONTENT_URL', WP_ADDR . '/wp-content');
 define('HOSPITAL_PLUGIN_URL', '/../vendor/amarcinkowski/hospitalplugin');
-define('UPLOADS', '/../uploads' );
+define('UPLOADS', '../uploads' );
 
 define('DB_NAME', getenv('DB_NAME'));
 define('DB_USER', getenv('DB_USER'));
