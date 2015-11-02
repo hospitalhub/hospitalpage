@@ -14,7 +14,7 @@ wp core multisite-install --url=127.0.0.1 --base=127.0.0.1 --title=x --admin_use
 wp rewrite structure '%postname%'
 wp core language activate pl_PL
 wp plugin activate --all
-wp theme activate responsive-child
+wp theme activate accesspress-parallax-child
 wp cap add administrator raport_zakazne
 wp cap add administrator raporty_zakazne_zbiorczy
 wp cap add administrator edit_pacjents
