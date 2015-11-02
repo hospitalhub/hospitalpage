@@ -21,7 +21,7 @@
 		"koodimonni-language/pl_PL" : "*",
 		"wpackagist-theme/responsive" : "*",
 		"wpackagist-theme/accesspress-parallax" : "*",
-		"amarcinkowski/responsive-child" : "dev-master",
+		"amarcinkowski/accesspress-parallax-child" : "dev-master",
 		"amarcinkowski/punction" : "dev-master",
 		"amarcinkowski/epidemio" : "dev-master",
 		"wpackagist-plugin/bootstrap-3-shortcodes" : "*",
