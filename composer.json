@@ -34,6 +34,7 @@
 		"wpackagist-plugin/easy-fancybox" : "*",
 		"wpackagist-plugin/improved-include-page" : "*",
 		"wpackagist-plugin/ml-slider" : "*",
+		"wpackagist-plugin/stream" : "*",
 		"wpackagist-plugin/navception" : "*",
 		"wpackagist-plugin/really-simple-captcha" : "*",
 		"wpackagist-plugin/recent-posts-by-category-widget" : "*",
