@@ -34,17 +34,14 @@
 		"wpackagist-plugin/download-attachments" : "*",
 		"wpackagist-plugin/easy-fancybox" : "*",
 		"wpackagist-plugin/filterable-portfolio" : "*",
-		"wpackagist-plugin/hatemile-for-wp" : "*",
 		"wpackagist-plugin/improved-include-page" : "*",
 		"wpackagist-plugin/ml-slider" : "*",
-		"wpackagist-plugin/stream" : "*",
 		"wpackagist-plugin/navception" : "*",
 		"wpackagist-plugin/really-simple-captcha" : "*",
 		"wpackagist-plugin/recent-posts-by-category-widget" : "*",
 		"wpackagist-plugin/shortcode-menu" : "*",
 		"wpackagist-plugin/wp-tota11y" : "*",
 		"wpackagist-plugin/user-role-editor" : "*",
-		"wpackagist-plugin/wp-user-stylesheet-switcher" : "*",
 		"wpackagist-plugin/zip-attachments" : "*"
 	},
 	"require-dev" : {
