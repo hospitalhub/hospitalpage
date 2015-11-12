@@ -39,6 +39,7 @@
 		"wpackagist-plugin/navception" : "*",
 		"wpackagist-plugin/really-simple-captcha" : "*",
 		"wpackagist-plugin/recent-posts-by-category-widget" : "*",
+		"wpackagist-plugin/simple-cookie-notification-bar" : "*",
 		"wpackagist-plugin/shortcode-menu" : "*",
 		"wpackagist-plugin/wp-tota11y" : "*",
 		"wpackagist-plugin/user-role-editor" : "*",
