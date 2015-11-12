@@ -33,6 +33,7 @@
 		"wpackagist-plugin/document-gallery" : "*",
 		"wpackagist-plugin/download-attachments" : "*",
 		"wpackagist-plugin/easy-fancybox" : "*",
+		"wpackagist-plugin/filterable-portfolio" : "*",
 		"wpackagist-plugin/hatemile-for-wp" : "*",
 		"wpackagist-plugin/improved-include-page" : "*",
 		"wpackagist-plugin/ml-slider" : "*",
