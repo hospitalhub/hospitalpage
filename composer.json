@@ -41,7 +41,6 @@
 		"wpackagist-plugin/shortcode-menu" : "*",
 		"wpackagist-plugin/wp-tota11y" : "*",
 		"wpackagist-plugin/user-role-editor" : "*",
-		"wpackagist-plugin/ultimate-modal" : "*",
 		"wpackagist-plugin/zip-attachments" : "*"
 	},
 	"require-dev" : {
