@@ -12,13 +12,14 @@ before_script:
   - scripts/install-wp-cli.sh
   - cp resources/.env.travis .env
   - scripts/install-wp-all.sh
-  - scripts/install-wp-tests.sh wordpress_test root '' localhost latest
-  - scripts/selenium.sh
+#  - scripts/install-wp-tests.sh wordpress_test root '' localhost latest
+#  - scripts/selenium.sh
   - mkdir -p build/logs
 script:
-  - phpunit -c phpunit-wpdb.xml
+#  - phpunit -c phpunit-wpdb.xml
 #  - phpunit -c phpunit-integration.xml
-#  - composer behat
+- composer behat
 after_script:
   - curl 127.0.0.1
-  - curl 127.0.0.1:8000
+  - curl 127.0.0.1/wp
+  - curl 127.0.0.1/wp-admin
