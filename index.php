@@ -11,6 +11,10 @@
  *
  * @var bool
  */
+
+echo "does it work at all?";
+
+return;
 define('WP_USE_THEMES', true);
 
 /** Loads the WordPress Environment and Template */
