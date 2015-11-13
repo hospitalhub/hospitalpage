@@ -23,7 +23,6 @@
 		"amarcinkowski/accesspress-parallax-child" : "dev-master",
 		"amarcinkowski/punction" : "dev-master",
 		"amarcinkowski/epidemio" : "dev-master",
-		"wpackagist-plugin/wp-accessibility" : "*",
 		"wpackagist-plugin/accessible-poetry" : "*",
 		"wpackagist-plugin/bootstrap-3-shortcodes" : "*",
 		"wpackagist-plugin/contact-form-7" : "*",
