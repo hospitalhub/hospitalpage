@@ -20,6 +20,5 @@ script:
 #  - phpunit -c phpunit-integration.xml
 - composer behat
 after_script:
-  - curl 127.0.0.1
-  - curl 127.0.0.1/wp
-  - curl 127.0.0.1/wp-admin
+  - curl http://127.0.0.1/wp/
+  - curl http://127.0.0.1/wp-admin/
