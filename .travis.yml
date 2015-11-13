@@ -18,7 +18,8 @@ before_script:
 script:
 #  - phpunit -c phpunit-wpdb.xml
   - phpunit -c phpunit-integration.xml
-- composer behat
+  - composer behat
 after_script:
   - curl http://127.0.0.1/wp/
   - curl http://127.0.0.1/wp/wp-admin/
+
