@@ -1,4 +1,5 @@
 #!/bin/bash
+cd ~/repo
 repo=${1:$PAGE_REPO}
 if [ -z $repo ]; then
 	echo "set env PAGE_REPO=https://....git"
