@@ -1,13 +1,15 @@
 #!/bin/bash
 cd ~/repo
+REPO_DIR=page
 repo=${1:$PAGE_REPO}
 if [ -z $repo ]; then
 	echo "= set env PAGE_REPO=https://....git"
 else
+	rm -rf $REPO_DIR
 	git clone $repo
 fi
 command -v wp >/dev/null 2>&1 || { echo >&2 "I require wp but it's not installed.  Aborting."; exit 1; }
-cd page
+cd $REPO_DIR
 CATEGORIES=(page post)
 # echo "no comments allowed"
 wp option set default_comment_status Disallow
