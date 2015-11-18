@@ -29,9 +29,10 @@ function add_img {
 	fi
 	# if image exists
 	if [ -z "$type" ]; then
-        echo "WARN   no pic for $i"
+        echo "WARN  no pic for $i"
 	else
-        wp media import "$i"."$type" --post_id="$1" --featured_image
+        wp media import "$i"."$type" --post_id="$1" --featured_image 1>>log
+        echo "INFO  import image $i.$type"
 	fi
 }
 
@@ -45,9 +46,12 @@ function tag {
         IFS='/' tags=($2);
 		# echo ;
         for tag in "${tags[@]}" ;do
+        	if [ "$tag" == post ] || [ "$tag" == page ]; then
+        		continue
+        	fi
 			echo "INFO  tag $tag"
-            wp post term add `echo $1` category $tag
-            wp post term add `echo $1` post_tag $tag
+            wp post term add `echo $1` category $tag 1>>log
+            wp post term add `echo $1` post_tag $tag 1>>log
         done
     fi
 }
@@ -62,11 +66,11 @@ function create {
 		title=`echo ${title} | sed 's/^[0-9 ]\{1,4\}//'`
 		# echo "num $title"
 	fi
-	echo "INFO   adding post $title from $directory"
+	echo "INFO  adding >>$title<< ($directory)"
 	# if in folder page then add as a page (path starts with page)
 	if [ "$directory" == page* ]; then
 		POST_TYPE="--post_type=page"
-		echo "| post type: PAGE"
+		echo "INFO  post type: PAGE"
 	else
 		POST_TYPE=""
 	fi
@@ -81,7 +85,11 @@ for CATEGORY in ${CATEGORIES[@]}; do
 	# echo "$CATEGORY"
 	find $CATEGORY -type f -printf '%h\0%d\0%p\n'| sort -t '\0' -nr | awk -F'\0' '{print $3}' | while read filepath; do
 		# echo "INFO  $CATEGORY : $filepath"
-		create "$filepath"
+		if [[ $filepath == *.sh ]]; then
+			echo "WARN  skipping shell script $filepath"
+		else
+			create "$filepath"
+		fi
 	done
 done
 for SCRIPT in settings/*; do
