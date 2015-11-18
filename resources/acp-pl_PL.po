@@ -1,0 +1,372 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2015-11-05 02:50+0200\n"
+"PO-Revision-Date: 2015-11-05 03:02+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/acp_panel.php:70 inc/acp_panel.php:71
+msgid "Accessible Poetry"
+msgstr "Poezja dostępności"
+
+#: inc/acp_panel.php:88
+msgid "Welcome to Accessible Poetry!"
+msgstr "Witaj w Poezji Dostępności!"
+
+#: inc/acp_panel.php:89
+msgid "Version"
+msgstr "Wersja"
+
+#: inc/acp_panel.php:90
+msgid ""
+"Here you will find options to perform a better accessibility WordPress "
+"website."
+msgstr ""
+"Tutaj znajdziesz opcje lepszego dostępu do"
+"strony Wordpress"
+
+#: inc/acp_panel.php:91
+msgid "This plugin is provided by"
+msgstr "Ten plugin dostarcza"
+
+#: inc/acp_panel.php:91
+msgid "Amit Moreno"
+msgstr "Amit Moreno"
+
+#: inc/acp_panel.php:91
+msgid "Please visit our"
+msgstr "Proszę odwiedź nasz"
+
+#: inc/acp_panel.php:91
+msgid "Go to our Plugin Page"
+msgstr "Idź do strony pluginu"
+
+#: inc/acp_panel.php:91
+msgid "Plugin Page"
+msgstr "Strona pluginu"
+
+#: inc/acp_panel.php:91
+msgid "and "
+msgstr "i"
+
+#: inc/acp_panel.php:91
+msgid "Rate Us on our Plugin Page"
+msgstr "Oceń nas na stronie plugina"
+
+#: inc/acp_panel.php:91
+msgid "Rate Us"
+msgstr "Oceń nas"
+
+#: inc/acp_panel.php:100
+msgid "General"
+msgstr "Ogólne"
+
+#: inc/acp_panel.php:104
+msgid "Add language attribute to the html tag."
+msgstr "Dodaj atrybut języka do taga html."
+
+#: inc/acp_panel.php:111
+msgid "Toolbar"
+msgstr "Pasek narzędzi"
+
+#: inc/acp_panel.php:114
+msgid "Toolbar Side"
+msgstr "Boczny pasek narzędzi"
+
+#: inc/acp_panel.php:116 inc/acp_panel.php:244
+msgid "Left"
+msgstr "Lewa"
+
+#: inc/acp_panel.php:117 inc/acp_panel.php:245
+msgid "Right"
+msgstr "Prawa"
+
+#: inc/acp_panel.php:121
+msgid "Icon position"
+msgstr "Pozycja ikony"
+
+#: inc/acp_panel.php:129
+msgid "Icon size (default is medium)"
+msgstr "Wielkość ikony (domyślnie średnia)"
+
+#: inc/acp_panel.php:131
+msgid "Small"
+msgstr "Mała"
+
+#: inc/acp_panel.php:132
+msgid "Medium"
+msgstr "Średnia"
+
+#: inc/acp_panel.php:137
+msgid "Contrast"
+msgstr "Kontrast"
+
+#: inc/acp_panel.php:140
+msgid ""
+"Affect additional elements with the contrast (separate elements with comma)"
+msgstr ""
+"Dodatkowe elementy z kontrastem (oddzielone przecinkiem)"
+
+#: inc/acp_panel.php:143
+msgid "Bright Contrast"
+msgstr "Jasny kontrast"
+
+#: inc/acp_panel.php:146
+msgid "Don't use any style for the Bright option."
+msgstr "Nie używaj stylu dla opcji Jasny."
+
+#: inc/acp_panel.php:150
+msgid "Affect on all the elements in Bright contrast mode."
+msgstr "Zastosuj do wszystkich elementów w Jasnym kontraście."
+
+#: inc/acp_panel.php:154
+msgid "Use custom colors for the Bright option."
+msgstr "Użyj wybranych kolorów dla opcji Jasny."
+
+#: inc/acp_panel.php:159
+msgid "Custom Color for the Background of the Bright option."
+msgstr "Wybrany kolor dla Tła w opcji Jasny."
+
+#: inc/acp_panel.php:163
+msgid "Custom Color for the Text of the Bright option."
+msgstr "Wybrany kolor dla tekstu w opcji Jasny."
+
+#: inc/acp_panel.php:167
+msgid "Custom Color for the Link of the Bright option."
+msgstr "Wybrany kolor dla linku w opcji Jasny."
+
+#: inc/acp_panel.php:171
+msgid "Custom Color for the Link of the Bright option in hover & focus modes."
+msgstr "Wybrany kolor linku w opcji Jasny dla hover i focus."
+
+#: inc/acp_panel.php:176
+msgid "Dark Contrast"
+msgstr "Ciemny kontrast"
+
+#: inc/acp_panel.php:179
+msgid "Don't use any style for the Dark option."
+msgstr "Nie używaj stylu dla opcji Ciemny"
+
+#: inc/acp_panel.php:183
+msgid "Affect on all the elements in Dark contrast mode."
+msgstr "Zastosuj do wszystkich elementów w Ciemnym kontraście."
+
+#: inc/acp_panel.php:187
+msgid "Use custom colors for the Dark option."
+msgstr "Użyj wybranych kolorów dla opcji Ciemny"
+
+#: inc/acp_panel.php:192
+msgid "Custom Color for the Background in the Dark option."
+msgstr "Wybrany kolor dla Tła w opcji Ciemny"
+
+#: inc/acp_panel.php:196
+msgid "Custom Color for the Text in the Dark option."
+msgstr "Wybrany kolor dla tekstu w opcji Ciemny"
+
+#: inc/acp_panel.php:200
+msgid "Custom Color for the Link of the Dark option."
+msgstr "Wybrany kolor dla linku w opcji Ciemny"
+
+#: inc/acp_panel.php:204
+msgid "Custom Color for the Link of the Dark option in hover & focus modes."
+msgstr "Wybrany kolor linku w opcji Ciemny dla hover i focus."
+
+#: inc/acp_panel.php:210
+msgid "Font Sizer"
+msgstr "Wielkość czcionki"
+
+#: inc/acp_panel.php:213
+msgid "Set the change of the font sizers in pixels."
+msgstr "Ustaw zmianę wielkości fontu w pikselach."
+
+#: inc/acp_panel.php:218
+msgid "Use custom tags, classes & id's with the Font sizer."
+msgstr "Użyć wybranych tagów, klas, id z wielkością czcionki"
+
+#: inc/acp_panel.php:221
+msgid ""
+"Write your custom tags, classes & id's for the Font sizer. separate items "
+"with a comma."
+msgstr "Napisz wybrane tagi, klasy, id dla wielkości czcionki oddzielone przecinkiem"
+
+#: inc/acp_panel.php:229 inc/acp_skiplinks.php:6
+msgid "Skiplinks"
+msgstr "Skiplinks"
+
+#: inc/acp_panel.php:231
+msgid ""
+"Skiplinks are links which aid navigation around the current page. the user "
+"who navigate with skiplinks do it with the Tab button."
+msgstr "Skiplinks to linki pomagające nawigować na obecnej stronie"
+"Nawiguj przy pomocy przycisku Tab."
+
+#: inc/acp_panel.php:232
+msgid ""
+"Before you activate the skiplinks, you should check if your theme has "
+"already got Skiplinks (you can check it by pressing the Tab button when you "
+"first land on a page, the Skiplinks need to be the first links that will be "
+"focused to a keyboard user)."
+msgstr "Zanim aktywujesz skiplinks, sprawdź czy twój Theme nie ma już skiplinks (naciśnij tab na stronie głównej i sprawdź czy podświetlisz link)."
+
+#: inc/acp_panel.php:235
+msgid "Enable Skiplinks"
+msgstr "Aktywuj skiplinks"
+
+#: inc/acp_panel.php:239
+msgid ""
+"After activating this option a new menu will be registered with your built-"
+"in \"Menus\" of WP. You then will need to create custom menu and add to it "
+"\"Links\" that points to the area you want to target to, for example if the "
+"Name of the Skiplink is: \"Skip to Content\", so the value of the link will "
+"probably be \"#content\"."
+msgstr "Po aktywacji opcji nowe menu zostanie zarejestrowane w Menu WP."
+"Następnie utworzysz wybrane nenu i dodasz do niego linki, które chciałbyś"
+"wskazywać, np. jeśli skiplink nazwiesz przejdź do treści, wartość linka będzie"
+"prawdopodobnie \"#content\"."
+
+#: inc/acp_panel.php:241
+msgid "Skiplinks Side"
+msgstr "Skiplinks boczny"
+
+#: inc/acp_panel.php:243
+msgid "Center (default)"
+msgstr "Wyśrodkowane (domyślnie)"
+
+#: inc/acp_panel.php:250
+msgid "Use different links for Home page"
+msgstr "Użyj innych linków dla strony głównej"
+
+#: inc/acp_panel.php:251
+msgid ""
+"This option will add another menu to your built-in WP Menus there you should "
+"set the permalinks for your Home page."
+msgstr "Ta opcja doda dodatkowe menu dla twoich wbudowanych WP Menu,"
+" tam ustaw permalinki dla strony głównej"
+
+#: inc/acp_panel.php:255
+msgid "Use your own style for the skiplinks"
+msgstr "Użyj własnych styli dla skiplinks"
+
+#: inc/acp_panel.php:258
+msgid "Background color"
+msgstr "Kolor tła"
+
+#: inc/acp_panel.php:262
+msgid "Link color"
+msgstr "Kolor linka"
+
+#: inc/acp_panel.php:267
+msgid "Disable link underline"
+msgstr "Wyłącz podkreślenie linków"
+
+#: inc/acp_panel.php:276
+msgid "Links"
+msgstr "Linki"
+
+#: inc/acp_panel.php:280
+msgid "Add role=\"link\" to all the &lt;a&gt; tag."
+msgstr "Dodaje role=\"link\" do wszystkich &lt;a&gt; tagów."
+
+#: inc/acp_panel.php:284
+msgid ""
+"Force Open links in current tab (Remove the \"target\" attribute from all "
+"links)."
+msgstr "Wymuś otwarcie w obecnym tabie (usuń atrybut \"target\" z linków)"
+
+#: inc/acp_panel.php:288
+msgid "Change all title attributes on links to aria-label."
+msgstr "Zmień wszystkie tytuły atrybutów linków na aria-label."
+
+#: inc/acp_panel.php:292
+msgid "Add outline to all links on focus mode."
+msgstr "Dodaj ramki do linków w focus mode."
+
+#: inc/acp_panel.php:296
+msgid "Force underline for links."
+msgstr "Wymuś podkreślenie linków."
+
+#: inc/acp_panel.php:301
+msgid "Images"
+msgstr "Obrazki"
+
+#: inc/acp_panel.php:305
+msgid "Force using ALT on all images."
+msgstr "Wymuś użycie ALT w obrazkach."
+
+#: inc/acp_panel.php:309
+msgid "Replacement for the image ALT"
+msgstr "Zastąp ALT obrazka"
+
+#: inc/acp_panel.php:312
+msgid "None"
+msgstr "Brak"
+
+#: inc/acp_panel.php:316
+msgid "Use attachment title as ALT for images with no alt"
+msgstr "Wyboerz tytuł załącznika jako ALT dla obrazków bez alt"
+
+#: inc/acp_panel.php:320
+msgid "Use attachment description as ALT for images with no alt"
+msgstr "Użyj opisu załącznika jako ALT dla obrazków bez alt"
+
+#: inc/acp_skiplinks.php:11
+msgid "Homepage Skiplinks"
+msgstr "Strona główna skiplinks"
+
+#: inc/acp_toolbar.php:17
+msgid "Accessibility"
+msgstr "Dostępność"
+
+#: inc/acp_toolbar.php:21
+msgid "Accessibility Toolbar"
+msgstr "Pasek narzędziowy dostępności"
+
+#: inc/acp_toolbar.php:23
+msgid "Decrease font size"
+msgstr "Zmniejsz czcionkę"
+
+#: inc/acp_toolbar.php:24
+msgid "Increase font size"
+msgstr "Zwiększ czcionkę"
+
+#: inc/acp_toolbar.php:25
+msgid "Default font sizes"
+msgstr "domyślna wielkość czcionki"
+
+#: inc/acp_toolbar.php:28
+msgid "Bright contrast"
+msgstr "Jasny kontrast"
+
+#: inc/acp_toolbar.php:29
+msgid "Dark contrast"
+msgstr "Ciemny kontrast"
+
+#: inc/acp_toolbar.php:30
+msgid "Grayscale"
+msgstr "Skala szarości"
+
+#: inc/acp_toolbar.php:31
+msgid "Reset contrast"
+msgstr "Resetuj kontrast"
+
+#: inc/acp_toolbar.php:34
+msgid "Keyboard Navigation"
+msgstr "Nawigacja klawiatury"
+
+#: inc/acp_toolbar.php:37
+msgid "Toggle underline"
+msgstr "Przełącz podkreślenie"
+
+#
+msgid "Readable font"
+msgstr "Wyraźna czcionka"
