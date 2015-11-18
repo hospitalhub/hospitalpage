@@ -59,7 +59,6 @@ function tag {
 }
 
 function create {
-	echo ""
 	echo "==== $1 ===="
 	directory="${1%\/*}"
 	title="${1#$directory\/}"
@@ -82,15 +81,50 @@ function create {
 	tag "$id" "$directory"
 }
 
+function hashFunction {
+	local  __resultvar=$2
+    hash=`echo -n $1 | md5sum`
+    hash=${hash%*  -}
+    eval $__resultvar="'$hash'"
+}
+
+function categoryHierarchy {
+	IFS='/' dirs=($1);
+    for dir in "${dirs[@]}" ;do
+        if [ "$dir" == post ] || [ "$dir" == page ]; then
+            continue
+        fi
+        hashFunction "$dir" hash
+        echo "INFO  creating tag $dir"
+        wp term create category $dir 1>>log 2>>log
+        id=`wp term list category --name=$dir --field=id`;
+		declare "TERM_ID_$hash=$id"
+        # create parent
+        if [ -n "$last_dir" ]; then
+	        hashFunction "$last_dir" parent_hash
+        	parent_category_id_var="TERM_ID_$parent_hash";
+	        echo "INFO  hierarchy: $last_dir -> $dir"
+			wp term update category `echo ${id}` --parent=`echo ${!parent_category_id_var}` 1>>log 2>>log
+        fi
+        last_dir=$dir
+        id=
+    done
+    last_dir=
+}
+
 for CATEGORY in ${CATEGORIES[@]}; do
 	# iterate over files in directories
 	# echo "$CATEGORY"
+	find $CATEGORY -type d -printf '%h\0%d\0%p\n'| sort -t '\0' -nr | awk -F'\0' '{print $3}' | while read path; do
+		categoryHierarchy "$path"
+	done
 	find $CATEGORY -type f -printf '%h\0%d\0%p\n'| sort -t '\0' -nr | awk -F'\0' '{print $3}' | while read filepath; do
 		# echo "INFO  $CATEGORY : $filepath"
 		if [[ $filepath == *.sh ]]; then
 			echo "WARN  skipping shell script $filepath"
 		else
-			create "$filepath"
+			echo ;
+		#	create "$filepath"
 		fi
 	done
 done
