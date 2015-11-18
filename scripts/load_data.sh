@@ -2,10 +2,10 @@
 cd ~/repo
 repo=${1:$PAGE_REPO}
 if [ -z $repo ]; then
-	echo "set env PAGE_REPO=https://....git"
-	exit
+  echo "set env PAGE_REPO=https://....git"
+else
+  git clone $repo
 fi
-git clone $repo
 command -v wp >/dev/null 2>&1 || { echo >&2 "I require wp but it's not installed.  Aborting."; exit 1; }
 cd page
 CATEGORIES=(page post)
