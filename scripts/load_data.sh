@@ -19,22 +19,23 @@ wp option set uploads_use_yearmonth_folders 0
 shopt -s globstar
 
 function add_img {
-	i="${2/$CATEGORY/images\/$CATEGORY}"
-	if [ -e "$i.jpg" ]; then
-        # echo "|   pic: $i.jpg"
+	#img_path="${2/$CATEGORY/images\/$CATEGORY}"
+	img_path="$2";
+	if [ -e "$img_path.jpg" ]; then
+        # echo "|   pic: $img_path.jpg"
         type="jpg"
-	elif [ -e "$i.png" ]; then
-        # echo "|   pic: $i.png"
+	elif [ -e "$img_path.png" ]; then
+        # echo "|   pic: $img_path.png"
         type="png"
 	else
         type=
 	fi
 	# if image exists
 	if [ -z "$type" ]; then
-        echo "WARN  no pic for $i"
+        echo "WARN  no pic for $img_path"
 	else
-        wp media import "$i"."$type" --post_id="$1" --featured_image 1>>log
-        echo "INFO  import image $i.$type"
+        wp media import "$img_path"."$type" --post_id="$1" --featured_image 1>>log
+        echo "INFO  import image $img_path.$type"
 	fi
 }
 
