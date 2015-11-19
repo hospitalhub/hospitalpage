@@ -121,7 +121,7 @@ for CATEGORY in ${CATEGORIES[@]}; do
 	done
 	find $CATEGORY -type f -printf '%h\0%d\0%p\n'| sort -t '\0' -nr | awk -F'\0' '{print $3}' | while read filepath; do
 		# echo "INFO  $CATEGORY : $filepath"
-		if [ "$filepath" == *.sh ] || [ "$filepath" == *.jpg ] || [ "$filepath" == *.png ]; then
+		if [[ "$filepath" == *.sh ]] || [[ "$filepath" == *.jpg ]] || [[ "$filepath" == *.png ]]; then
 			echo "WARN  skipping images and scripts $filepath"
 		else
 			echo ;
