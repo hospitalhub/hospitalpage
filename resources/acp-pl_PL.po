@@ -333,11 +333,11 @@ msgstr "Pasek narzędziowy dostępności"
 
 #: inc/acp_toolbar.php:23
 msgid "Decrease font size"
-msgstr "Zmniejsz czcionkę"
+msgstr "Zmniejsz czcionkę (można kliknąć wielokrotnie)"
 
 #: inc/acp_toolbar.php:24
 msgid "Increase font size"
-msgstr "Zwiększ czcionkę"
+msgstr "Zwiększ czcionkę (można kliknąć wielokrotnie)"
 
 #: inc/acp_toolbar.php:25
 msgid "Default font sizes"
