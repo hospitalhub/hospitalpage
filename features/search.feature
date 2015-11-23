@@ -1,18 +1,20 @@
 # features/search.feature
-Feature: Search
+
+#language: pl
+Aspekt: Search
   In order to see a word definition
   As a website user
   I need to be able to search for a word
 
 #  @javascript
-  Scenario: Searching for a page that does exist
-    Given I am on "/wiki/Main_Page"
-    When I fill in "search" with "Behavior Driven Development"
-    And I press "searchButton"
-    Then I should see "agile software development"
+  Scenariusz: Searching for a page that does exist
+    Zakładając że jestem na stronie "/wiki/Main_Page"
+    Gdy wypełnię pole "search" wartością "Behavior Driven Development"
+    Oraz nacisnę przycisk "searchButton"
+    Wtedy powinienem zobaczyć tekst "agile software development"
 
-  Scenario: Searching for a page that does NOT exist
-    Given I am on "/wiki/Main_Page"
-    When I fill in "search" with "Glory Driven Development"
-    And I press "searchButton"
-    Then I should see "Search results"
+  Scenariusz: Searching for a page that does NOT exist
+    Zakładając że jestem na stronie "/wiki/Main_Page"
+    Kiedy wypełnię pole "search" wartością "Glory Driven Development"
+    Oraz nacisnę przycisk "searchButton"
+    Wtedy powininem zobaczyć tekst "Search results"

@@ -63,7 +63,7 @@
 		"post-update-cmd" : [
 			"Koodimonni\\Installer::installLanguages"
 		],
-		"behat" : "vendor/bin/behat"
+		"behat" : "vendor/bin/behat --story-syntax --lang=pl"
 	},
 	"repositories" : [{
 			"type" : "composer",
