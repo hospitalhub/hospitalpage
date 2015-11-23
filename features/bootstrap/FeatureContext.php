@@ -1,31 +1,49 @@
 <?php
-
-use 
-//     Behat\Behat\Context\TranslatedContextInterface,
-    Behat\Behat\Context;
+use Behat\Behat\Context\Context;
+// use Behat\Behat\Context\TranslatedContextInterface,
 // use Behat\Gherkin\Node\PyStringNode,
-//     Behat\Gherkin\Node\TableNode;
-use Behat\MinkExtension\Context\MinkContext;
+// Behat\Gherkin\Node\TableNode;
 
 /**
  * Features context.
  */
-class FeatureContext extends Context
-{
-//     public function __construct(array $parameters)
-//     {
-// 	 $this->useContext('mink', new MinkContext());
-//     }
-
-//
-// Place your definition and hook methods here:
-//
-//    /**
-//     * @Given /^I have done something with "([^"]*)"$/
-//     */
-//    public function iHaveDoneSomethingWith($argument)
-//    {
-//        doSomethingWith($argument);
-//    }
-//
+class FeatureContext implements Context {
+	public function __construct($parameter) {
+		// instantiate context
+	}
+	
+	/**
+	 * @BeforeFeature
+	 */
+	public static function prepareForTheFeature() {
+		// clean database or do other preparation stuff
+	}
+	
+	/**
+	 * @Given we have some context
+	 */
+	public function prepareContext() {
+		// do something
+	}
+	
+	/**
+	 * @When event occurs
+	 */
+	public function doSomeAction() {
+		// do something
+	}
+	
+	/**
+	 * @Then something should be done
+	 */
+	public function checkOutcomes() {
+		// do something
+	}
+	
+	/**
+	 * @Given /^I have done something with "([^"]*)"$/
+	 */
+	public function iHaveDoneSomethingWith($argument) {
+		// doSomethingWith($argument);
+	}
 }
