@@ -50,8 +50,8 @@
 		"phpunit/phpunit" : "4.1.*",
 		"phpunit/phpunit-selenium" : "*",
 		"netwing/selenium-server-standalone" : "2.43.*",
-		"behat/behat" : "@stable",
-		"behat/mink" : "@stable",
+		"behat/behat" : "*",
+		"behat/mink" : "*",
 		"behat/mink-extension" : "*",
 		"behat/mink-goutte-driver" : "*",
 		"behat/mink-selenium2-driver" : "*"
