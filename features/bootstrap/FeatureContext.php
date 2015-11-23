@@ -8,7 +8,11 @@ use Behat\Behat\Context\Context;
  * Features context.
  */
 class FeatureContext implements Context {
-	public function __construct($parameter) {
+	
+	/**
+	 * constr
+	 */
+	public function __construct() {
 		// instantiate context
 	}
 	
