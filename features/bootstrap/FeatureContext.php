@@ -1,8 +1,8 @@
 <?php
 
-// use 
+use 
 //     Behat\Behat\Context\TranslatedContextInterface,
-//     Behat\Behat\Context;
+    Behat\Behat\Context;
 // use Behat\Gherkin\Node\PyStringNode,
 //     Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
@@ -10,7 +10,7 @@ use Behat\MinkExtension\Context\MinkContext;
 /**
  * Features context.
  */
-class FeatureContext extends MinkContext
+class FeatureContext extends Context
 {
 //     public function __construct(array $parameters)
 //     {
