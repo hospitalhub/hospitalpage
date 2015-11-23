@@ -1,27 +1,21 @@
 <?php
 
-use 
-    Behat\Behat\Context\TranslatedContextInterface,
-    Behat\Behat\Context;
-use Behat\Gherkin\Node\PyStringNode,
-    Behat\Gherkin\Node\TableNode;
+// use 
+//     Behat\Behat\Context\TranslatedContextInterface,
+//     Behat\Behat\Context;
+// use Behat\Gherkin\Node\PyStringNode,
+//     Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 
 /**
  * Features context.
  */
-class FeatureContext extends Context
+class FeatureContext extends MinkContext
 {
-    /**
-     * Initializes context.
-     * Every scenario gets it's own context object.
-     *
-     * @param array $parameters context parameters (set them up through behat.yml)
-     */
-    public function __construct(array $parameters)
-    {
-	 $this->useContext('mink', new MinkContext());
-    }
+//     public function __construct(array $parameters)
+//     {
+// 	 $this->useContext('mink', new MinkContext());
+//     }
 
 //
 // Place your definition and hook methods here:

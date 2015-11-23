@@ -10,3 +10,8 @@ default:
                 selenium2:
                   browser: 'firefox'
                   capabilities: {"browser": "firefox", "browserVersion": "33", "version": "ANY", platform: "LINUX", deviceType: "PC"}
+    suites:
+      my_suite:
+        contexts:
+          - FeatureContext
+          - Behat\MinkExtension\Context\MinkContext
