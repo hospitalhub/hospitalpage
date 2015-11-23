@@ -3,7 +3,7 @@ DIR=/var/www
 cd $DIR/vendor/amarcinkowski/hospitalplugin/
 chmod +x /var/www/vendor/doctrine/orm/bin/doctrine
 ../../bin/doctrine orm:schema-tool:create
-#moved to hospitalplugin
+# moved 2 hospitalplugin
 #cd $DIR/wp-content/plugins/punction/
 #../../../vendor/bin/doctrine orm:schema-tool:create
 echo "insert into hospital_user values (1,'1','admin');" | sudo -u vagrant wp db cli
