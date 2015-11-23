@@ -8,14 +8,15 @@ Aspekt: Search
 
 #  @javascript
   Scenariusz: Searching for a page that does exist
-    Zakładając, że jestem na stronie "/wiki/Main_Page"
-    Gdy wypełnię pole "search" wartością "Behavior Driven Development"
-    Oraz nacisnę przycisk "searchButton"
-    Wtedy zobaczę tekst "agile software development"
+    Zakładając, że jestem na stronie "/wp/x"
+    #Gdy wypełnię pole "search" wartością "sample"
+    #Oraz nacisnę przycisk "searchButton"
+    Wtedy zobaczę tekst "Oops!"
 
   Scenariusz: Searching for a page that does NOT exist
-    Zakładając, że jestem na stronie "/wiki/Main_Page"
-    Kiedy wypełnię pole "search" wartością "Glory Driven Development"
-    Oraz nacisnę przycisk "searchButton"
-    Wtedy zobaczę tekst "results"
+    Zakładając, że jestem na stronie "/wp/wp-admin/"
+    Kiedy wypełnię pole "user_login" wartością "root"
+    Oraz wypełnię pole "user_pass" wartością "pass"
+    Oraz nacisnę przycisk "Zaloguj się"
+    Wtedy zobaczę tekst "Kokpit"
 
