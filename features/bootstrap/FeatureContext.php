@@ -2,7 +2,7 @@
 
 use 
     Behat\Behat\Context\TranslatedContextInterface,
-    Behat\Behat\Context\BehatContext;
+    Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
@@ -10,7 +10,7 @@ use Behat\MinkExtension\Context\MinkContext;
 /**
  * Features context.
  */
-class FeatureContext extends BehatContext
+class FeatureContext extends Context
 {
     /**
      * Initializes context.
