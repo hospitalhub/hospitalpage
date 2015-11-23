@@ -4,13 +4,15 @@ default:
         Behat\MinkExtension:
             base_url: 'http://wikipedia.org'
             sessions:
-              goutte: ~
-              selenium2:
-                browser: 'firefox'
-                capabilities: { 
-                  "browser": "firefox", 
-                  "browserVersion": "33", 
-                  "version": "ANY", 
-                  platform: "LINUX", 
-                  deviceType: "PC"
-                }
+              session1:
+                goutte: ~
+              session2:
+                selenium2:
+                  browser: 'firefox'
+                  capabilities: { 
+                    "browser": "firefox", 
+                    "browserVersion": "33", 
+                    "version": "ANY", 
+                    platform: "LINUX", 
+                    deviceType: "PC"
+                  }
