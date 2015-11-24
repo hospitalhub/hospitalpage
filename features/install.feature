@@ -20,5 +20,5 @@ Aspekt: Instalacja
     
   Przykłady:
    | link							| tekst 					|
-   | Pacjenci                       | Do kategoryzacji 			|
+   | Pacjenci                       | Nazwisko i Imię 			|
    | Epidemiologia                  | Raport Epidemiologiczny 	|
