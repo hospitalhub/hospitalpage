@@ -23,5 +23,4 @@ Aspekt: Instalacja
    | Wtyczki                        | epidemio                  |
    | Wtyczki                        | punction                  |
    | Epidemiologia                  | Raport Epidemiologiczny 	|
-   | Pacjenci                       | Nazwisko                  |
    
