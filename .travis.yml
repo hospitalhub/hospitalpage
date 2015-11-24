@@ -21,5 +21,4 @@ script:
   - composer behat
 after_script:
   - curl http://127.0.0.1/wp/
-  - curl http://127.0.0.1/wp/wp-admin/
 
