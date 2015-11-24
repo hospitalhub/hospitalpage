@@ -20,5 +20,8 @@ Aspekt: Instalacja
     
   Przykłady:
    | link							| tekst 					|
-   | Pacjenci                       | Nazwisko i Imię 			|
+   | Wtyczki                        | epidemio                  |
+   | Wtyczki                        | punction                  |
    | Epidemiologia                  | Raport Epidemiologiczny 	|
+   | Pacjenci                       | Pacjenci od               |
+   
