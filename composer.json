@@ -28,6 +28,7 @@
 		"wpackagist-plugin/contact-form-7" : "*",
 		"wpackagist-plugin/contact-form-7-dynamic-text-extension" : "*",
 		"wpackagist-plugin/disable-google-fonts" : "1.0",
+		"wpackagist-plugin/disable-wordpress-core-update" : "*",
 		"wpackagist-plugin/document-gallery" : "*",
 		"wpackagist-plugin/download-attachments" : "*",
 		"wpackagist-plugin/easy-fancybox" : "*",
@@ -43,10 +44,6 @@
 		"wpackagist-plugin/zip-attachments" : "*"
 	},
 	"require-dev" : {
-		"wpackagist-plugin/blackbox-debug-bar" : "*",
-		"wpackagist-plugin/disable-wordpress-core-update" : "*",
-		"wpackagist-plugin/wp-calendar" : "*",
-		"wpackagist-plugin/wp-clean-up" : "*",
 		"phpunit/phpunit" : "4.1.*",
 		"phpunit/phpunit-selenium" : "*",
 		"netwing/selenium-server-standalone" : "2.43.*",
