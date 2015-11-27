@@ -56,7 +56,7 @@ function tag {
             wp post term add `echo $1` post_tag $tag 1>>log
         done
 	#many tags / one category (parent dir)
-        wp post term add `echo $1` category ${tag[-1]}} 1>>log
+        wp post term add `echo $1` category ${tag[-1]} 1>>log
     fi
 }
 
