@@ -25,6 +25,7 @@
 		"amarcinkowski/epidemio" : "dev-master",
 		"wpackagist-plugin/accessible-poetry" : "*",
 		"wpackagist-plugin/bootstrap-3-shortcodes" : "*",
+		"wpackagist-plugin/buddypress" : "*",
 		"wpackagist-plugin/contact-form-7" : "*",
 		"wpackagist-plugin/contact-form-7-dynamic-text-extension" : "*",
 		"wpackagist-plugin/disable-google-fonts" : "1.0",
