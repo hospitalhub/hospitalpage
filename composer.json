@@ -20,6 +20,7 @@
 		"vlucas/phpdotenv" : "~1.0.6",
 		"koodimonni-language/pl_PL" : "*",
 		"wpackagist-theme/accesspress-parallax" : "*",
+		"addressbook" : "*",
 		"amarcinkowski/accesspress-parallax-child" : "dev-master",
 		"amarcinkowski/punction" : "dev-master",
 		"amarcinkowski/epidemio" : "dev-master",
