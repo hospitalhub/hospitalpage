@@ -53,11 +53,13 @@ function tag {
         		continue
         	fi
             echo "INFO tag $tag"
-            wp post term add `echo $1` post_tag $tag 1>>log
-            wp post term add `echo $1` category $tag 1>>log
+            wp post term add `echo $1` post_tag "$tag" 1>>log
         done
 	#many tags / one category (parent dir)
-	echo "last tag ${tag[-1]}"
+	if [ ${#tags[@]} -gt 1 ]; then
+		echo "category ${tags[-1]}"
+        	wp post term add `echo $1` category "${tags[-1]}" 1>>log
+	fi
     fi
 }
 
