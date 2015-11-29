@@ -133,7 +133,16 @@ for CATEGORY in ${CATEGORIES[@]}; do
 		fi
 	done
 done
+echo "================"
+echo "Loading settings"
 for SCRIPT in settings/*; do
 	echo "INFO  runnging script $SCRIPT"
 	. $SCRIPT
+done
+
+echo "================"
+echo "Loading db"
+for SCRIPT in sql/*; do
+	echo "INFO  loading db $SCRIPT"
+	wp db import "sql/$SCRIPT"
 done
