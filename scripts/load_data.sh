@@ -144,5 +144,5 @@ echo "================"
 echo "Loading db"
 for SCRIPT in sql/*; do
 	echo "INFO  loading db $SCRIPT"
-	wp db import "sql/$SCRIPT"
+	wp db import "$SCRIPT"
 done
