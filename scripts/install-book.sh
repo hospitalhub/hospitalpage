@@ -1,5 +1,9 @@
 #!/bin/bash
 
+function link_book {
+	ln -s vendor/addressbook/addressbook book
+}
+
 function files_edit {
 # ADDRESSBOOK settings
 	cat resources/cfg.db.php > book/config/cfg.db.php
@@ -8,3 +12,6 @@ function files_edit {
 	sed -i -e "s/<br \/>//g" -e "s/<hr \/>//g" -e "s/style=/x=/g" -e "s/button\"/\" style=\"visibility: hidden; display: none;\"/g"   book/index.php
 	echo "" > book/include/footer.inc.php > book/include/header.inc.php > book/include/format.inc.php 
 }
+
+link_book
+file_edit
