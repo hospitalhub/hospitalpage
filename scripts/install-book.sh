@@ -1,7 +1,8 @@
 #!/bin/bash
 
 function link_book {
-	ln -s vendor/addressbook/addressbook book
+	cd /var/www
+	if [ ! -L 'book' ]; then ln -s vendor/addressbook/addressbook book;fi
 }
 
 function files_edit {
@@ -14,4 +15,4 @@ function files_edit {
 }
 
 link_book
-file_edit
+files_edit
