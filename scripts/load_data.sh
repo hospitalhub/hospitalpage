@@ -57,10 +57,11 @@ function tag {
             wp post term add `echo $1` post_tag "$sorted_tag" 1>>log
         done
 	#many tags / one category (parent dir)
-	if [ ${#tags[@]} -gt 1 ]; then
-		echo "category ${tags[-1]}"
-        	wp post term add `echo $1` category "${tags[-1]}" 1>>log
-	fi
+		if [ ${#tags[@]} -gt 1 ]; then
+		    removeLeadingNumbers "${tags[-1]}" category
+			echo "category $category"
+	        wp post term add `echo $1` category "$category" 1>>log
+		fi
     fi
 }
 
