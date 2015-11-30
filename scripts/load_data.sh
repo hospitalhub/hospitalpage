@@ -52,8 +52,9 @@ function tag {
         	if [ "$tag" == post ] || [ "$tag" == page ]; then
         		continue
         	fi
-            echo "INFO tag $tag"
-            wp post term add `echo $1` post_tag "$tag" 1>>log
+        	removeLeadingNumbers "$tag" sorted_tag
+            echo "INFO tag $sorted_tag"
+            wp post term add `echo $1` post_tag "$sorted_tag" 1>>log
         done
 	#many tags / one category (parent dir)
 	if [ ${#tags[@]} -gt 1 ]; then
@@ -66,12 +67,8 @@ function tag {
 function create {
 	echo "==== $1 ===="
 	directory="${1%\/*}"
-	title="${1#$directory\/}"
-	number="[0-9]+ "
-	if [[ "$title" =~ ^[0-9]* ]]; then
-		title=`echo ${title} | sed 's/^[0-9 ]\{1,4\}//'`
-		# echo "num $title"
-	fi
+	filename="${1#$directory\/}"
+	removeLeadingNumbers "$filename" title
 	echo "INFO  adding >>$title<< ($directory)"
 	# if in folder page then add as a page (path starts with page)
 	if [ "$directory" == page* ]; then
@@ -84,6 +81,20 @@ function create {
 	id=`wp post create "$1" --post_title="$title" $POST_TYPE --post_status=publish --porcelain`; 
 	add_img "$id" "$1"
 	tag "$id" "$directory"
+}
+
+function removeLeadingNumbers {
+	local  __resultvar=$2
+	echo "REMOVE NUMBER FROM $1"
+	number="[0-9]+ "
+	if [[ "$1" =~ ^[0-9]* ]]; then
+		title=`echo ${1} | sed 's/^[0-9 ]\{1,4\}//'`
+		echo "REMOVED $title"
+	else
+		title=$1
+		echo "NO NUMBER IN $title"
+	fi
+    eval $__resultvar="'$title'"
 }
 
 function hashFunction {
@@ -99,6 +110,7 @@ function categoryHierarchy {
         if [ "$dir" == post ] || [ "$dir" == page ]; then
             continue
         fi
+        removeLeadingNumbers "$dir" dir
         hashFunction "$dir" hash
         echo "INFO  creating tag $dir"
         wp term create category $dir 1>>log 2>>log
@@ -120,7 +132,7 @@ function categoryHierarchy {
 for CATEGORY in ${CATEGORIES[@]}; do
 	# iterate over files in directories
 	# echo "$CATEGORY"
-	find $CATEGORY -type d -printf '%h\0%d\0%p\n'| sort -t '\0' -nr | awk -F'\0' '{print $3}' | while read path; do
+	find $CATEGORY -type d -printf '%h\0%d\0%p\n'| sort -t '\0' -n | awk -F'\0' '{print $3}' | while read path; do
 		categoryHierarchy "$path"
 	done
 	find $CATEGORY -type f -printf '%h\0%d\0%p\n'| sort -t '\0' -nr | awk -F'\0' '{print $3}' | while read filepath; do
