@@ -27,7 +27,7 @@
 		"wpackagist-plugin/bootstrap-3-shortcodes" : "*",
 		"wpackagist-plugin/contact-form-7" : "*",
 		"wpackagist-plugin/contact-form-7-dynamic-text-extension" : "*",
-		"wpackagist-plugin/cookie-law-info" : "*",
+		"wpackagist-plugin/cookie-law-info" : "1.5.3",
 		"wpackagist-plugin/disable-google-fonts" : "1.0",
 		"wpackagist-plugin/disable-wordpress-core-update" : "*",
 		"wpackagist-plugin/document-gallery" : "*",
