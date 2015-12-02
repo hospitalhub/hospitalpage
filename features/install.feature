@@ -19,6 +19,9 @@ Aspekt: Instalacja
     Wtedy zobaczę tekst "<tekst>"
     
   Przykłady:
-   | linki              | tekst                   |
-   | Kokpit             | Witaj |
+   | link               | tekst                   |
+   | Kokpit             | Witaj                   |
+   | Wtyczki            | epidemio                |
+   | Wtyczki            | punction                |
+   | Epidemiologia      | Raport Epidemiologiczny |
    
