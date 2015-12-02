@@ -8,7 +8,7 @@ Aspekt: Instalacja
 
   Scenariusz: Otwarcie nieistniejącej strony
     Zakładając, że jestem na stronie "/wp/qwezxc"
-    Wtedy zobaczę tekst "Oops!"
+    Wtedy zobaczę tekst "Ojej! Brak strony..."
 
   Szablon scenariusza: zawartość po zalogowaniu
     Zakładając, że jestem na stronie "/wp/wp-admin/"
@@ -19,7 +19,7 @@ Aspekt: Instalacja
     Wtedy zobaczę tekst "<tekst>"
     
   Przykłady:
-   | link							| tekst 					|
+   | linki                          | tekst                     |
    | Wtyczki                        | epidemio                  |
    | Wtyczki                        | punction                  |
    | Epidemiologia                  | Raport Epidemiologiczny 	|
