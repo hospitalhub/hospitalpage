@@ -24,4 +24,5 @@ Aspekt: Instalacja
    | Wtyczki            | epidemio                |
    | Wtyczki            | punction                |
    | Epidemiologia      | Raport Epidemiologiczny |
+   | test               | error					  |
    

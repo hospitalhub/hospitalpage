@@ -23,6 +23,23 @@ class FeatureContext implements Context {
 		// clean database or do other preparation stuff
 	}
 	
+
+  /**
+   * @AfterStep
+   */
+  public function takeScreenShotAfterFailedStep(afterStepScope $scope)
+  {
+//     if (99 === $scope->getTestResult()->getResultCode()) {
+      $driver = $this->getSession()->getDriver();
+      if (!($driver instanceof Selenium2Driver)) {
+      	echo "ERROR Selenium 2 Driver only";
+        return;
+      }
+      echo "taking screenshot";
+      file_put_contents('/tmp/test.png', $this->getSession()->getDriver()->getScreenshot());
+//     }
+  }
+	
 	/**
 	 * @Given we have some context
 	 */
