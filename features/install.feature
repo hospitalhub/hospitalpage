@@ -6,6 +6,7 @@ Aspekt: Instalacja
   sprawdzamy stronę i logowanie do kokpitu 
   
 
+  @javascript
   Scenariusz: Otwarcie nieistniejącej strony
     Zakładając, że jestem na stronie "/wp/qwezxc"
     Wtedy zobaczę tekst "Ojej! Brak strony..."

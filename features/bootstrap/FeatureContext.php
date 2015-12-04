@@ -1,6 +1,7 @@
 <?php
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\AfterStepScope;
+use Behat\MinkExtension\Context\MinkContext;
 // use Behat\Behat\Context\TranslatedContextInterface,
 // use Behat\Gherkin\Node\PyStringNode,
 // Behat\Gherkin\Node\TableNode;
@@ -8,7 +9,7 @@ use Behat\Behat\Hook\Scope\AfterStepScope;
 /**
  * Features context.
  */
-class FeatureContext implements Context {
+class FeatureContext extends MinkContext {
 	
 	/**
 	 * constr
@@ -40,6 +41,22 @@ class FeatureContext implements Context {
       file_put_contents('/tmp/test.png', $this->getSession()->getDriver()->getScreenshot());
 //     }
   }
+  
+  private function takeScreenshot()
+  {
+  	$driver = $this->getSession()->getDriver();
+  	if (!$driver instanceof Selenium2Driver) {
+  		echo "error not selenium2driver";
+  		return;
+  	}
+  	$baseUrl = $this->getMinkParameter('base_url');
+  	$fileName = date('d-m-y') . '-' . uniqid() . '.png';
+  	$filePath = $this->getContainer()->get('kernel')->getRootdir() . '/../web/tmp/';
+  
+  	$this->saveScreenshot($fileName, $filePath);
+  	print 'Screenshot at: ' . $baseUrl . 'tmp/' . $fileName;
+  }
+  
 	
 	/**
 	 * @Given we have some context
