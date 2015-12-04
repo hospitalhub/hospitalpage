@@ -10,8 +10,9 @@ default:
       base_url: 'http://127.0.0.1'
       sessions:
         default:
-          goutte: ~
-        session2:
           selenium2:
             browser: 'firefox'
             capabilities: {"browser": "firefox", "browserVersion": "33", "version": "ANY", platform: "LINUX", deviceType: "PC"}
+        session2:
+          goutte: ~
+        
