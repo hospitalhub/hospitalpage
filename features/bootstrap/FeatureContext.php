@@ -24,26 +24,6 @@ class FeatureContext implements Context {
 	}
 	
 	/**
-	 * Take screenshot when step fails.
-	 * Works only with Selenium2Driver.
-	 *
-	 * @AfterStep
-	 */
-	public function takeScreenshotAfterFailedStep($event)
-	{
-		if (4 === $event->getResult()) {
-			$driver = $this->getSession()->getDriver();
-			if (!($driver instanceof Selenium2Driver)) {
-				//throw new UnsupportedDriverActionException('Taking screenshots is not supported by %s, use Selenium2Driver instead.', $driver);
-				return;
-			}
-	
-			$screenshot = $driver->wdSession->screenshot();
-			file_put_contents('/tmp/test.png', base64_decode($screenshot));
-		}
-	}
-	
-	/**
 	 * @Given we have some context
 	 */
 	public function prepareContext() {
