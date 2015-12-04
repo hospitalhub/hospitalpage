@@ -7,11 +7,10 @@ default:
   extensions:
     Behat\MinkExtension:
       base_url: 'http://127.0.0.1:8000'
+      browser_name: firefox
       sessions:
-        default:
-          selenium2:
-            browser: 'firefox'
-            capabilities: {"browser": "firefox", "browserVersion": "33", "version": "ANY", platform: "LINUX", deviceType: "PC"}
-        session2:
+        selenium2:
+          selenium2: ~          
+        goutte:
           goutte: ~
         

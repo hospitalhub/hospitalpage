@@ -51,10 +51,9 @@ class FeatureContext extends MinkContext {
   	}
   	$baseUrl = $this->getMinkParameter('base_url');
   	$fileName = date('d-m-y') . '-' . uniqid() . '.png';
-  	$filePath = $this->getContainer()->get('kernel')->getRootdir() . '/../web/tmp/';
   
-  	$this->saveScreenshot($fileName, $filePath);
-  	print 'Screenshot at: ' . $baseUrl . 'tmp/' . $fileName;
+  	$this->saveScreenshot($fileName, '~/');
+  	print 'Screenshot at: ' . $baseUrl . '' . $fileName;
   }
   
 	
