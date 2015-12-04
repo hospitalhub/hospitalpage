@@ -1,5 +1,6 @@
 <?php
 use Behat\Behat\Context\Context;
+use Behat\Behat\Hook\Scope\AfterStepScope;
 // use Behat\Behat\Context\TranslatedContextInterface,
 // use Behat\Gherkin\Node\PyStringNode,
 // Behat\Gherkin\Node\TableNode;
@@ -27,7 +28,7 @@ class FeatureContext implements Context {
   /**
    * @AfterStep
    */
-  public function takeScreenShotAfterFailedStep(afterStepScope $scope)
+  public function takeScreenShotAfterFailedStep(AfterStepScope $scope)
   {
 //     if (99 === $scope->getTestResult()->getResultCode()) {
       $driver = $this->getSession()->getDriver();
