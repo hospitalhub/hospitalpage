@@ -3,7 +3,7 @@
 #chmod +x wp-cli.phar
 #sudo mv wp-cli.phar /usr/local/bin/wp
 composer create-project wp-cli/wp-cli ~/wp-cli --no-dev
-export PATH=$PATH:$HOME/wp-cli/bin/
+ln -s ~/wp-cli/bin/wp ~/wp
 mkdir ~/.wp-cli
 
 if [ -z "$TRAVIS_PHP_VERSION" ]; then
