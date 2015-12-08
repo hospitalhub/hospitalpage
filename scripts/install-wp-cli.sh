@@ -15,3 +15,4 @@ echo "path: /var/www/wp
 url: $WP_ADDR" > ~/.wp-cli/config.yml
 #tests scaffolding
 #wp --path="wp/" scaffold plugin-tests punction
+wp -require=example.php example hello Newman
