@@ -1,0 +1,1 @@
+kliknę na link "Wtyczki" %% step.after %%09-12-15-5668587f7e7e9.png

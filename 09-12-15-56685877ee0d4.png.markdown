@@ -1,0 +1,1 @@
+kliknę na link "Kokpit" %% step.after %%09-12-15-56685877ee0d4.png
