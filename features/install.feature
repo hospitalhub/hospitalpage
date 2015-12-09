@@ -11,6 +11,7 @@ Aspekt: Instalacja
     Zakładając, że jestem na stronie "/wp/qwezxc"
     Wtedy zobaczę tekst "Ojej! Brak strony..."
 
+  @javascript
   Szablon scenariusza: zawartość po zalogowaniu
     Zakładając, że jestem na stronie "/wp/wp-admin/"
     Kiedy wypełnię pole "user_login" wartością "root"
