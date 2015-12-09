@@ -31,10 +31,8 @@ class FeatureContext extends MinkContext {
    */
   public function takeScreenShotAfterFailedStep(AfterStepScope $scope)
   {
-//    $driver = $this->getSession()->getDriver();
   	  $fileName = date('d-m-y') . '-' . uniqid() . '.png';
   	  $this->saveScreenshot($fileName, getenv("HOME"));
-  	  echo filesize(getenv("HOME").'/'.$fileName);
   }
   
 	/**
@@ -59,12 +57,12 @@ class FeatureContext extends MinkContext {
 	}
 	
 	/**
-	 * @Given /^otwieram na "([^"]*)"$/
+	 * @Given /^otwieram na ([^"]*)$/
 	 */
-	public function iHaveDoneSomethingWith($argument) {
+	public function iOpenOnDevice($argument) {
 		// doSomethingWith($argument);
-		echo "urządzenie: " . $argument;
-		if ($argument == "smartphonie") {
+		echo "Otwarto na: " . $argument;
+		if ($argument == "smartfonie") {
 			$this->getSession()->resizeWindow(320, 480, 'current');
 		} else if ($argument == "tablecie") {
 			$this->getSession()->resizeWindow(1024, 768, 'current');

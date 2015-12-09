@@ -9,7 +9,7 @@ Aspekt: Instalacja
   @javascript
   Scenariusz: Otwarcie nieistniejącej strony
     Zakładając, że jestem na stronie "/wp/qwezxc"
-    I otwieram na "tablecie"
+    I otwieram na smartfonie
     Wtedy zobaczę tekst "Ojej! Brak strony..."
 
   @javascript
