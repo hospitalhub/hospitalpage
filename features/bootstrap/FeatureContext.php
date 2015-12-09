@@ -22,7 +22,7 @@ class FeatureContext extends MinkContext {
 	 * @BeforeFeature
 	 */
 	public static function prepareForTheFeature() {
-		// clean database or do other preparation stuff
+		$this->getSession()->resizeWindow(1024, 768, 'current');
 	}
 	
 
@@ -31,7 +31,7 @@ class FeatureContext extends MinkContext {
    */
   public function takeScreenShotAfterFailedStep(AfterStepScope $scope)
   {
-      $driver = $this->getSession()->getDriver();
+//       $driver = $this->getSession()->getDriver();
   	  $fileName = date('d-m-y') . '-' . uniqid() . '.png';
   	  $this->saveScreenshot($fileName, getenv("HOME"));
   	  echo filesize(getenv("HOME").'/'.$fileName);
