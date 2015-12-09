@@ -31,32 +31,16 @@ class FeatureContext extends MinkContext {
    */
   public function takeScreenShotAfterFailedStep(AfterStepScope $scope)
   {
-//     if (99 === $scope->getTestResult()->getResultCode()) {
       $driver = $this->getSession()->getDriver();
-      if (!($driver instanceof Selenium2Driver)) {
-      	echo "ERROR Selenium 2 Driver only";
+//       if (!($driver instanceof Selenium2Driver)) {
+      echo "Driver: " . var_dump($driver);
         return;
-      }
-      echo "taking screenshot";
-      file_put_contents('/tmp/test.png', $this->getSession()->getDriver()->getScreenshot());
-//     }
-  }
-  
-  private function takeScreenshot()
-  {
-  	$driver = $this->getSession()->getDriver();
-  	if (!$driver instanceof Selenium2Driver) {
-  		echo "error not selenium2driver";
-  		return;
-  	}
-  	$baseUrl = $this->getMinkParameter('base_url');
+//       }
+//       file_put_contents('/tmp/test.png', $this->getSession()->getDriver()->getScreenshot());
   	$fileName = date('d-m-y') . '-' . uniqid() . '.png';
-  
   	$this->saveScreenshot($fileName, '~/');
-  	print 'Screenshot at: ' . $baseUrl . '' . $fileName;
   }
   
-	
 	/**
 	 * @Given we have some context
 	 */
