@@ -16,13 +16,14 @@ class FeatureContext extends MinkContext {
 	 */
 	public function __construct() {
 		// instantiate context
+		$this->getSession()->resizeWindow(1024, 768, 'current');
 	}
 	
 	/**
 	 * @BeforeFeature
 	 */
 	public static function prepareForTheFeature() {
-		$this->getSession()->resizeWindow(1024, 768, 'current');
+		// clean database or do other preparation stuff
 	}
 	
 
