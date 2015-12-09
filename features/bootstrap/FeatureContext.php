@@ -34,7 +34,7 @@ class FeatureContext extends MinkContext {
       $driver = $this->getSession()->getDriver();
   	  $fileName = date('d-m-y') . '-' . uniqid() . '.png';
   	  $this->saveScreenshot($fileName, getenv("HOME"));
-  	  echo filesize(getenv("HOME").$fileName);
+  	  echo filesize(getenv("HOME").'/'.$fileName);
   }
   
 	/**
