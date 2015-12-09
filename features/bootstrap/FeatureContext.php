@@ -71,4 +71,5 @@ class FeatureContext extends MinkContext {
 		} else {
 			$this->getSession()->resizeWindow(1280, 1024, 'current');
 		}
+	}
 }
