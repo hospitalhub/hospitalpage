@@ -32,6 +32,8 @@ class FeatureContext extends MinkContext {
   public function takeScreenShotAfterFailedStep(AfterStepScope $scope)
   {
   	  $fileName = date('d-m-y') . '-' . uniqid() . '.png';
+  	  $text = $scope->getStep() . ' %% ' .  $scope->getName() . ' %%' . $fileName;
+  	  file_put_contents(getenv("HOME") . '/' . $fileName . '.markdown', $text , FILE_APPEND);
   	  $this->saveScreenshot($fileName, getenv("HOME"));
   }
   

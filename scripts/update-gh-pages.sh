@@ -2,7 +2,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   echo -e "Starting to update gh-pages\n"
 
   #copy data we're interested in to other place
-  cp -R coverage $HOME/coverage
+  #cp -R coverage $HOME/coverage
 
   #go to home and setup git
   cd $HOME
@@ -15,7 +15,8 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   #go into diractory and copy data we're interested in to that directory
   cd gh-pages
   cp -Rf $HOME/*.png .
-  ls -la > index.html
+  cp -Rf $HOME/*.markdown .
+  #ls -l | awk '{print $9}' > index.html
 
   #add, commit and push files
   git add -f .
