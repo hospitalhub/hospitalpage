@@ -9,7 +9,7 @@ Aspekt: Instalacja
   @javascript
   Scenariusz: Otwarcie nieistniejącej strony
     Zakładając, że jestem na stronie "/wp/qwezxc"
-    Oraz, otwieram na urządzeniu "tablet"
+    I otwieram na "tablecie"
     Wtedy zobaczę tekst "Ojej! Brak strony..."
 
   @javascript
@@ -27,5 +27,4 @@ Aspekt: Instalacja
    | Wtyczki            | epidemio                |
    | Wtyczki            | punction                |
    | Epidemiologia      | Raport Epidemiologiczny |
-   | test               | error					  |
    

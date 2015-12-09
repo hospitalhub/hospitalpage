@@ -59,14 +59,14 @@ class FeatureContext extends MinkContext {
 	}
 	
 	/**
-	 * @Given /^otwieram na urządzeniu "([^"]*)"$/
+	 * @Given /^otwieram na "([^"]*)"$/
 	 */
 	public function iHaveDoneSomethingWith($argument) {
 		// doSomethingWith($argument);
 		echo "urządzenie: " . $argument;
-		if ($argument == "smartphone") {
+		if ($argument == "smartphonie") {
 			$this->getSession()->resizeWindow(320, 480, 'current');
-		} else if ($argument == "tablet") {
+		} else if ($argument == "tablecie") {
 			$this->getSession()->resizeWindow(1024, 768, 'current');
 		} else {
 			$this->getSession()->resizeWindow(1280, 1024, 'current');
