@@ -1,23 +1,25 @@
 language: php
 sudo: require
 php:
-  - "5.5"
+- '5.5'
 cache:
-  - apt
+- apt
 env:
-  - PATH=$PATH:.:~ HOSPITAL_HOST="http://127.0.0.1" HTTP_HOST="http://127.0.0.1" DB_HOST=127.0.0.1 DB_NAME=hospital DB_USER=root DB_PASSWORD=
+  matrix:
+  - PATH=$PATH:.:~ HOSPITAL_HOST="http://127.0.0.1" HTTP_HOST="http://127.0.0.1" DB_HOST=127.0.0.1
+    DB_NAME=hospital DB_USER=root DB_PASSWORD=
+  global:
+    secure: qyZl/FadsPEIuL1nQjTAvEmyeXc0AvJnbsjmXQ2OLG1GvxCOuLCdTBs9PdWxMOtcN6xipZWNM5kNTKWTZ3Xk9sJxJSsY1SVlu523VBHM9s7HkWL2LnrDaRsO6oaX8CL26QNuV9p74jVD+GlzX+6b+Mj2RE2nL3hkUUqqVrTjeK0=
 before_script:
-  - scripts/install-server.sh
-  - scripts/install-dependencies.sh
-  - scripts/install-wp-cli.sh
-  - cp resources/.env.travis .env
-  - scripts/install-wp-all.sh
-#  - scripts/install-wp-tests.sh wordpress_test root '' localhost latest
-  - scripts/selenium.sh
-#  - mkdir -p build/logs
+- scripts/install-server.sh
+- scripts/install-dependencies.sh
+- scripts/install-wp-cli.sh
+- cp resources/.env.travis .env
+- scripts/install-wp-all.sh
+- scripts/selenium.sh
 script:
-#  - phpunit -c phpunit-wpdb.xml
-#  - phpunit -c phpunit-integration.xml
-  - composer behat
+- composer behat
 after_script:
-  - curl http://127.0.0.1/wp/ | head -n 12
+- curl http://127.0.0.1/wp/ | head -n 12
+after_success:
+- scripts/update-gh-pages.sh
