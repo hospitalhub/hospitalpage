@@ -24,14 +24,22 @@ class FeatureContext extends MinkContext {
 	 * @BeforeFeature
 	 */
 	public static function prepareForTheFeature(BeforeFeatureScope $scope) {
-		FeatureContext::printToScenario($scope, $scope->getFeature()->getDescription());
+		$post="---
+		layout: post
+		title: " . $scope->getFeature()->getDescription() . "
+		---
+		";
+		FeatureContext::printToScenario($scope, $post );
 	}
 	
 	/**
 	 * @BeforeScenario
 	 */
 	public function prepareForTheScenario(BeforeScenarioScope $scope) {
-		FeatureContext::printToScenario($scope, $scope->getScenario()->getTitle());
+		$text="
+		# " . $scope->getScenario()->getTitle()."
+		"; 
+		FeatureContext::printToScenario($scope, $text);
 	}
 	
 	public static function printToScenario($scope,$text) {
@@ -50,7 +58,8 @@ class FeatureContext extends MinkContext {
   {
   	// filename - if the step is repeated it doesn't create additional screenshots
   	  $fileName = $scope->getFeature()->getTitle() . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';
-  	  $text = $fileName . '\n';
+  	  $text = "![".$scope->getStep()->getText()."]({{ site.url }}/".$fileName . ")
+  	  ";
   	  FeatureContext::printToScenario($scope, $text);
   	  $this->saveScreenshot($fileName, getenv("HOME"));
   }
