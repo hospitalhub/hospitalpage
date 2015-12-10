@@ -40,8 +40,8 @@ class FeatureContext extends MinkContext {
 		file_put_contents( FeatureContext::getFileName($scope), $text , FILE_APPEND);
 	}
 	
-	public static function getDir($sub = "") {
-		$dir= getenv("HOME") . '/page/' . $sub . '/';
+	public static function getDir() {
+		$dir= getenv("HOME");  
 		if (!is_dir($dir)) {
 			mkdir($dir);
 		}
@@ -49,7 +49,7 @@ class FeatureContext extends MinkContext {
 	}
 	
 	public static function getFileName($scope) {
-		$filename =  FeatureContext::getDir() . date('Y-m-d-') . $scope->getFeature()->getTitle() . '.markdown';
+		$filename =  FeatureContext::getDir() . '/' . date('Y-m-d-') . $scope->getFeature()->getTitle() . '.markdown';
 		return $filename;
 	}
 	
@@ -66,7 +66,7 @@ class FeatureContext extends MinkContext {
   	  $fileName = FeatureContext::getImageFilename($scope);
   	  $text = "\n\n![".$scope->getStep()->getText()."]({{ site.url }}{{ site.baseurl }}/images/".$fileName . ")\n\n";
   	  FeatureContext::printToScenario($scope, $text);
-  	  $this->saveScreenshot($fileName, FeatureContext::getDir('images'));
+  	  $this->saveScreenshot($fileName, FeatureContext::getDir());
   }
   
 	/**
