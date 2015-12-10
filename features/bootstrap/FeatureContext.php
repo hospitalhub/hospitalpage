@@ -24,13 +24,7 @@ class FeatureContext extends MinkContext {
 	 * @BeforeFeature
 	 */
 	public static function prepareForTheFeature(BeforeFeatureScope $scope) {
-		$post="---
-layout: post
-title: " . $scope->getFeature()->getTitle() . "
----
-		
-" . preg_replace("/\n/", " ", $scope->getFeature()->getDescription()) . "
-";
+		$post="---\nlayout: post\ntitle: " . $scope->getFeature()->getTitle() . "\n---\n\n" . preg_replace("/\n/", " ", $scope->getFeature()->getDescription()) . "\n";
 		FeatureContext::printToScenario($scope, $post );
 	}
 	
@@ -38,9 +32,7 @@ title: " . $scope->getFeature()->getTitle() . "
 	 * @BeforeScenario
 	 */
 	public function prepareForTheScenario(BeforeScenarioScope $scope) {
-		$text="
-		# " . $scope->getScenario()->getTitle()."
-		"; 
+		$text="# " . $scope->getScenario()->getTitle()."\n"; 
 		FeatureContext::printToScenario($scope, $text);
 	}
 	
@@ -60,8 +52,7 @@ title: " . $scope->getFeature()->getTitle() . "
   {
   	// filename - if the step is repeated it doesn't create additional screenshots
   	  $fileName = $scope->getFeature()->getTitle() . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';
-  	  $text = "![".$scope->getStep()->getText()."]({{ site.url }}/".$fileName . ")
-  	  ";
+  	  $text = "\n\n![".$scope->getStep()->getText()."]({{ site.url }}/".$fileName . ")\n\n";
   	  FeatureContext::printToScenario($scope, $text);
   	  $this->saveScreenshot($fileName, getenv("HOME"));
   }
@@ -77,22 +68,18 @@ title: " . $scope->getFeature()->getTitle() . "
 	 * @When event occurs
 	 */
 	public function doSomeAction() {
-		// do something
 	}
 	
 	/**
 	 * @Then something should be done
 	 */
 	public function checkOutcomes() {
-		// do something
 	}
 	
 	/**
 	 * @Given /^otwieram na ([^"]*)$/
 	 */
 	public function iOpenOnDevice($argument) {
-		// doSomethingWith($argument);
-		echo "Otwarto na: " . $argument;
 		if ($argument == "smartfonie") {
 			$this->getSession()->resizeWindow(320, 480, 'current');
 		} else if ($argument == "tablecie") {
