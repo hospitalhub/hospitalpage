@@ -3,6 +3,7 @@ title: HospitalPage
 #email: zxc@qwe
 description: "Opis projektu."
 baseurl: "/hospitalpage"
+url: "https://hospitalhub.github.io"
 github_username:  hospitalhub
 timezone: Europe/Warsaw
 
