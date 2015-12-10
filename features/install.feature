@@ -15,6 +15,7 @@ Aspekt: Instalacja
   @javascript
   Szablon scenariusza: zawartość po zalogowaniu
     Zakładając, że jestem na stronie "/wp/wp-admin/"
+    I otwieram na tablecie
     Kiedy wypełnię pole "user_login" wartością "root"
     Oraz wypełnię pole "user_pass" wartością "pass"
     Oraz nacisnę przycisk "Zaloguj się"
@@ -27,4 +28,3 @@ Aspekt: Instalacja
    | Wtyczki            | epidemio                |
    | Wtyczki            | punction                |
    | Epidemiologia      | Raport Epidemiologiczny |
-   
