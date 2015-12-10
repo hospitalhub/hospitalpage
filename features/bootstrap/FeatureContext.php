@@ -25,10 +25,12 @@ class FeatureContext extends MinkContext {
 	 */
 	public static function prepareForTheFeature(BeforeFeatureScope $scope) {
 		$post="---
-		layout: post
-		title: " . $scope->getFeature()->getDescription() . "
-		---
-		";
+layout: post
+title: " . $scope->getFeature()->getTitle() . "
+---
+		
+" . preg_replace("\n", "", $scope->getFeature()->getDescription()) . "
+";
 		FeatureContext::printToScenario($scope, $post );
 	}
 	
