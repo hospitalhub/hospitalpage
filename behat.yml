@@ -11,6 +11,6 @@ default:
       sessions:
         selenium2:
           selenium2: ~          
-        goutte:
-          goutte: ~
+#        goutte:
+#          goutte: ~
         
