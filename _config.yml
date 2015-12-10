@@ -1,10 +1,10 @@
 # Site settings
 title: HospitalPage
-email: zxc@qwe
+#email: zxc@qwe
 description: "Opis projektu."
 baseurl: "/hospitalpage"
-url: "http://github.com/hospitalhub"
 github_username:  hospitalhub
+timezone: Europe/Warsaw
 
 # Build settings
 markdown: kramdown
