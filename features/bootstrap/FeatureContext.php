@@ -29,7 +29,7 @@ layout: post
 title: " . $scope->getFeature()->getTitle() . "
 ---
 		
-" . preg_replace("\n", " ", $scope->getFeature()->getDescription()) . "
+" . preg_replace("/\n/", " ", $scope->getFeature()->getDescription()) . "
 ";
 		FeatureContext::printToScenario($scope, $post );
 	}
