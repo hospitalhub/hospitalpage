@@ -40,9 +40,21 @@ class FeatureContext extends MinkContext {
 		file_put_contents( FeatureContext::getFileName($scope), $text , FILE_APPEND);
 	}
 	
+	public static function getDir($sub = "") {
+		$dir= getenv("HOME") . '/page/' . $sub . '/';
+		if (!is_dir($dir)) {
+			mkdir($dir);
+		}
+		return $dir;
+	}
+	
 	public static function getFileName($scope) {
-		$filename = getenv("HOME") . '/' . date('Y-m-d-') . $scope->getFeature()->getTitle() . '.markdown';
+		$filename =  FeatureContext::getDir() . date('Y-m-d-') . $scope->getFeature()->getTitle() . '.markdown';
 		return $filename;
+	}
+	
+	public static function getImageFilename($scope) {
+		return $scope->getFeature()->getTitle() . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';		
 	}
 
   /**
@@ -51,10 +63,10 @@ class FeatureContext extends MinkContext {
   public function takeScreenShotAfterStep(AfterStepScope $scope)
   {
   	// filename - if the step is repeated it doesn't create additional screenshots
-  	  $fileName = $scope->getFeature()->getTitle() . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';
-  	  $text = "\n\n![".$scope->getStep()->getText()."]({{ site.url }}/".$fileName . ")\n\n";
+  	  $fileName = FeatureContext::getImageFilename($scope);
+  	  $text = "\n\n![".$scope->getStep()->getText()."]({{ site.url }}{{ site.baseurl }}/images/".$fileName . ")\n\n";
   	  FeatureContext::printToScenario($scope, $text);
-  	  $this->saveScreenshot($fileName, getenv("HOME"));
+  	  $this->saveScreenshot($fileName, FeatureContext::getDir('images'));
   }
   
 	/**
