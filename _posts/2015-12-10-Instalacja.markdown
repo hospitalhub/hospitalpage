@@ -1,9 +1,10 @@
 ---
-		layout: post
-		title: Aby mieć pewność poprawnej instalacji
-sprawdzamy stronę i logowanie do kokpitu
-		---
+layout: post
+title: Instalacja
+---
 		
+Aby mieć pewność poprawnej instalacji sprawdzamy stronę i logowanie do kokpitu
+
 		# Otwarcie nieistniejącej strony
 		![jestem na stronie "/wp/qwezxc"]({{ site.url }}/Instalacja-c2febe256cdfb1d73e4796a002a0abd0-11.png)
   	  ![otwieram na smartfonie]({{ site.url }}/Instalacja-ec081e1f7fc36d2b314eacc9f0e98ddf-12.png)
