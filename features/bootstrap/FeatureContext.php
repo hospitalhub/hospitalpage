@@ -24,16 +24,16 @@ class FeatureContext extends MinkContext {
 	 * @BeforeFeature
 	 */
 	public static function prepareForTheFeature(BeforeFeatureScope $scope) {
-		$post="---\nlayout: post\ntitle: " . $scope->getFeature()->getTitle() . "\n---\n\n" . preg_replace("/\n/", " ", $scope->getFeature()->getDescription()) . "\n";
-		FeatureContext::printToScenario($scope, $post );
+// 		$post="---\nlayout: post\ntitle: " . $scope->getFeature()->getTitle() . "\n---\n\n" . preg_replace("/\n/", " ", $scope->getFeature()->getDescription()) . "\n";
+		FeatureContext::printToScenario($scope, 'qwe' );
 	}
 	
 	/**
 	 * @BeforeScenario
 	 */
 	public function prepareForTheScenario(BeforeScenarioScope $scope) {
-		$text="# " . $scope->getScenario()->getTitle()."\n"; 
-		FeatureContext::printToScenario($scope, $text);
+// 		$text="# " . $scope->getScenario()->getTitle()."\n"; 
+// 		FeatureContext::printToScenario($scope, $text);
 	}
 	
 	public static function printToScenario($scope,$text) {
@@ -51,10 +51,10 @@ class FeatureContext extends MinkContext {
   public function takeScreenShotAfterStep(AfterStepScope $scope)
   {
   	// filename - if the step is repeated it doesn't create additional screenshots
-  	  $fileName = $scope->getFeature()->getTitle() . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';
-  	  $text = "\n\n![".$scope->getStep()->getText()."]({{ site.url }}/{{ site.baseurl }}/images/".$fileName . ")\n\n";
-  	  FeatureContext::printToScenario($scope, $text);
-  	  $this->saveScreenshot($fileName, getenv("HOME"));
+//   	  $fileName = $scope->getFeature()->getTitle() . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';
+//   	  $text = "\n\n![".$scope->getStep()->getText()."]({{ site.url }}/{{ site.baseurl }}/images/".$fileName . ")\n\n";
+//   	  FeatureContext::printToScenario($scope, $text);
+//   	  $this->saveScreenshot($fileName, getenv("HOME"));
   }
   
 	/**
