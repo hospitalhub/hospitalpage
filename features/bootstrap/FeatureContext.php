@@ -24,28 +24,34 @@ class FeatureContext extends MinkContext {
 	 * @BeforeFeature
 	 */
 	public static function prepareForTheFeature(BeforeFeatureScope $scope) {
-		FeatureContext::printToScenario($scope->getFeature()->getTitle(), $scope->getFeature()->getDescription());
+		FeatureContext::printToScenario($scope, $scope->getFeature()->getDescription());
 	}
 	
 	/**
 	 * @BeforeScenario
 	 */
 	public function prepareForTheScenario(BeforeScenarioScope $scope) {
-		FeatureContext::printToScenario($scope->getFeature()->getTitle(), $scope->getScenario()->getTitle());
+		FeatureContext::printToScenario($scope, $scope->getScenario()->getTitle());
 	}
 	
-	public static function printToScenario($scenario,$text) {
-		file_put_contents(getenv("HOME") . '/' . $scenario . '.markdown', $text , FILE_APPEND);
+	public static function printToScenario($scope,$text) {
+		file_put_contents( FeatureContext::getFileName($scope), $text , FILE_APPEND);
+	}
+	
+	public static function getFileName($scope) {
+		$filename = getenv("HOME") . '/' . date('Y-m-d-') . $scope->getFeature()->getTitle() . '.markdown';
+		return $filename;
 	}
 
   /**
    * @AfterStep
    */
-  public function takeScreenShotAfterFailedStep(AfterStepScope $scope)
+  public function takeScreenShotAfterStep(AfterStepScope $scope)
   {
-  	  $fileName = date('d-m-y') . '-' . uniqid() . '.png';
-  	  $text = var_dump($scope->getStep()) . ' \n| ' . $fileName;
-  	  FeatureContext::printToScenario($scope->getFeature()->getTitle(), $text);
+  	// filename - if the step is repeated it doesn't create additional screenshots
+  	  $fileName = $scope->getFeature()->getTitle() . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';
+  	  $text = $fileName . '\n';
+  	  FeatureContext::printToScenario($scope, $text);
   	  $this->saveScreenshot($fileName, getenv("HOME"));
   }
   

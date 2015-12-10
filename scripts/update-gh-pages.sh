@@ -1,9 +1,6 @@
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   echo -e "Starting to update gh-pages\n"
 
-  #copy data we're interested in to other place
-  #cp -R coverage $HOME/coverage
-
   #go to home and setup git
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
@@ -13,10 +10,9 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/hospitalhub/hospitalpage.git gh-pages > /dev/null
 
   #go into diractory and copy data we're interested in to that directory
-  cd gh-pages
+  cd gh-pages/_posts
   cp -Rf $HOME/*.png .
   cp -Rf $HOME/*.markdown .
-  #ls -l | awk '{print $9}' > index.html
 
   #add, commit and push files
   git add -f .
