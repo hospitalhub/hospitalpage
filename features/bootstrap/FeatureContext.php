@@ -2,6 +2,8 @@
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\AfterStepScope;
 use Behat\MinkExtension\Context\MinkContext;
+use Behat\Behat\Hook\Scope\BeforeFeatureScope;
+use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 // use Behat\Behat\Context\TranslatedContextInterface,
 // use Behat\Gherkin\Node\PyStringNode,
 // Behat\Gherkin\Node\TableNode;
@@ -21,10 +23,20 @@ class FeatureContext extends MinkContext {
 	/**
 	 * @BeforeFeature
 	 */
-	public static function prepareForTheFeature() {
-		// clean database or do other preparation stuff
+	public static function prepareForTheFeature(BeforeFeatureScope $scope) {
+		FeatureContext::printToScenario($scope->getFeature()->getTitle(), $scope->getFeature()->getDescription());
 	}
 	
+	/**
+	 * @BeforeScenario
+	 */
+	public function prepareForTheScenario(BeforeScenarioScope $scope) {
+		FeatureContext::printToScenario($scope->getFeature()->getTitle(), $scope->getScenario()->getTitle());
+	}
+	
+	public static function printToScenario($scenario,$text) {
+		file_put_contents(getenv("HOME") . '/' . $scenario . '.markdown', $text , FILE_APPEND);
+	}
 
   /**
    * @AfterStep
@@ -32,8 +44,8 @@ class FeatureContext extends MinkContext {
   public function takeScreenShotAfterFailedStep(AfterStepScope $scope)
   {
   	  $fileName = date('d-m-y') . '-' . uniqid() . '.png';
-  	  $text = $scope->getStep()->getText() . ' %% ' .  $scope->getName() . ' %%' . $fileName;
-  	  file_put_contents(getenv("HOME") . '/' . $fileName . '.markdown', $text , FILE_APPEND);
+  	  $text = var_dump($scope->getStep()) . ' \n| ' . $fileName;
+  	  FeatureContext::printToScenario($scope->getFeature()->getTitle(), $text);
   	  $this->saveScreenshot($fileName, getenv("HOME"));
   }
   
