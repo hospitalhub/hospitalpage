@@ -1,1 +1,0 @@
-nacisnę przycisk "Zaloguj się" %% step.after %%09-12-15-56688c5d2ea06.png
