@@ -10,9 +10,9 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/hospitalhub/hospitalpage.git gh-pages > /dev/null
 
   #go into diractory and copy data we're interested in to that directory
-  cd gh-pages/_posts
-  cp -Rf $HOME/*.png .
-  cp -Rf $HOME/*.markdown .
+  cd gh-pages
+  cp -Rf $HOME/*.png images
+  cp -Rf $HOME/*.markdown _posts
 
   #add, commit and push files
   git add -f .

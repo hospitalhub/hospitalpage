@@ -52,7 +52,7 @@ class FeatureContext extends MinkContext {
   {
   	// filename - if the step is repeated it doesn't create additional screenshots
   	  $fileName = $scope->getFeature()->getTitle() . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';
-  	  $text = "\n\n![".$scope->getStep()->getText()."]({{ site.url }}/{{ site.baseurl }}/".$fileName . ")\n\n";
+  	  $text = "\n\n![".$scope->getStep()->getText()."]({{ site.url }}/{{ site.baseurl }}/images/".$fileName . ")\n\n";
   	  FeatureContext::printToScenario($scope, $text);
   	  $this->saveScreenshot($fileName, getenv("HOME"));
   }
