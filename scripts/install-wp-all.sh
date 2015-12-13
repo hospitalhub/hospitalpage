@@ -1,4 +1,5 @@
 #!/bin/bash
+PATH=$PATH:/home/ubuntu
 if [ -z "$TRAVIS_PHP_VERSION" ]; then
   export WP_ADDR='127.0.0.1:8000';
   export PLATFORM='vagrant (non-travis)'
@@ -19,6 +20,6 @@ wp cap add administrator raport_zakazne
 wp cap add administrator raporty_zakazne_zbiorczy
 wp cap add administrator edit_pacjents
 wp cap add administrator read_pacjenci_wszystkie_oddz
-wp -require=example.php example hello Newman
+#wp --require=example.php example hello Newman
 sed -i.bak "s/_SITE', '$WP_ADDR'/_SITE', WP_ADDR/g" wp-config.php
 rm wp-config.php.bak
