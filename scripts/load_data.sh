@@ -34,7 +34,7 @@ function add_img {
 	if [ -z "$type" ]; then
         echo "WARN  no pic for $img_path"
 	else
-        wp media import "$img_path"."$type" --post_id="$1" --featured_image 1>>log
+        wp media import "$img_path"."$type" --post_id="$1" --featured_image 
         echo "INFO  import image $img_path.$type"
 	fi
 }
