@@ -15,7 +15,7 @@ sh -e /etc/init.d/xvfb start
 echo "xvfb ready"
 sleep 2 
 mkdir -p build/logs
-java -jar vendor/netwing/selenium-server-standalone/selenium-server-standalone-2.43.0.jar & # > build/logs/selenium.log 2>&1 &
+java -jar vendor/netwing/selenium-server-standalone/selenium-server-standalone-2.43.0.jar > build/logs/selenium.log 2>&1 &
 FF=`firefox --version`
 echo "selenium running Firefox $FF" 
 sleep 2
