@@ -54,7 +54,7 @@ class FeatureContext extends MinkContext {
    	  $fileName = $scope->getFeature()->getTitle() . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';
    	  $text = "\n\n![".$scope->getStep()->getText()."]({{ site.url }}/{{ site.baseurl }}/images/".$fileName . ")\n\n";
    	  FeatureContext::printToScenario($scope, $text);
-//   	  $this->saveScreenshot($fileName, getenv("HOME"));
+   	  $this->saveScreenshot($fileName, getenv("HOME"));
   }
   
 	/**
