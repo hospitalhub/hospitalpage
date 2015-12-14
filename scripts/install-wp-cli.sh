@@ -1,9 +1,9 @@
 ### WP-CLI
-#curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-#chmod +x wp-cli.phar
-#sudo mv wp-cli.phar /usr/local/bin/wp
-composer create-project wp-cli/wp-cli ~/wp-cli --no-dev
-ln -s ~/wp-cli/bin/wp ~/wp
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+chmod +x wp-cli.phar
+sudo mv wp-cli.phar /usr/local/bin/wp
+#composer create-project wp-cli/wp-cli ~/wp-cli --no-dev
+#ln -s ~/wp-cli/bin/wp ~/wp
 mkdir ~/.wp-cli
 
 if [ -z "$TRAVIS_PHP_VERSION" ]; then
