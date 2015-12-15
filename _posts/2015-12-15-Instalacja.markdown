@@ -20,3 +20,12 @@ Aby mieć pewność poprawnej instalacji sprawdzamy stronę i logowanie do kokp
 ![jestem na stronie "/wp/wp-admin/"]({{ site.url }}/{{ site.baseurl }}/images/Instalacja-891f04f03c6457ce9916e48298d69c12-17.png)
 
 # | Wtyczki       | punction                |
+
+
+![jestem na stronie "/wp/wp-admin/"]({{ site.url }}/{{ site.baseurl }}/images/Instalacja-891f04f03c6457ce9916e48298d69c12-17.png)
+
+# | Epidemiologia | Raport Epidemiologiczny |
+
+
+![jestem na stronie "/wp/wp-admin/"]({{ site.url }}/{{ site.baseurl }}/images/Instalacja-891f04f03c6457ce9916e48298d69c12-17.png)
+
