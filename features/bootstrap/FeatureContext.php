@@ -12,18 +12,21 @@ use Behat\Behat\Hook\Scope\BeforeScenarioScope;
  * Features context.
  */
 class FeatureContext extends MinkContext {
+
+	private $featureCount;
 	
 	/**
 	 * constr
 	 */
 	public function __construct() {
-		// instantiate context
+		$this->featureCount = 0;
 	}
 	
 	/**
 	 * @BeforeFeature
 	 */
 	public static function prepareForTheFeature(BeforeFeatureScope $scope) {
+		$this->featureCount++;
  		$post="---\nlayout: post\ntitle: " . $scope->getFeature()->getTitle() . "\n---\n\n" . preg_replace("/\n/", " ", $scope->getFeature()->getDescription()) . "\n";
 		FeatureContext::printToScenario($scope, $post );
 	}
@@ -32,7 +35,7 @@ class FeatureContext extends MinkContext {
 	 * @BeforeScenario
 	 */
 	public function prepareForTheScenario(BeforeScenarioScope $scope) {
- 		$text="# " . $scope->getScenario()->getTitle()."\n"; 
+ 		$text="\n\n# " . $scope->getScenario()->getTitle()."\n"; 
  		FeatureContext::printToScenario($scope, $text);
 	}
 	
@@ -51,7 +54,7 @@ class FeatureContext extends MinkContext {
   public function takeScreenShotAfterStep(AfterStepScope $scope)
   {
   	// filename - if the step is repeated it doesn't create additional screenshots
-   	  $fileName = $scope->getFeature()->getTitle() . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';
+   	  $fileName = $this->featureCount . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';
    	  $text = "\n\n![".$scope->getStep()->getText()."]({{ site.url }}/{{ site.baseurl }}/images/".$fileName . ")\n\n";
    	  FeatureContext::printToScenario($scope, $text);
    	  $this->saveScreenshot($fileName, getenv("HOME"));
