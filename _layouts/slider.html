@@ -13,7 +13,7 @@ layout: default
 
   <article class="post-content">
   <div class="slider">
-  {% for slide in site.data.sliders %}
+  {% for slide in page.sliders %}
     {% for image in slide.images %}
     <div>
       <img src="{{site.url}}{{site.baseurl}}/{{slide.folder}}/{{image.name}}" />
