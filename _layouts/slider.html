@@ -11,28 +11,27 @@ layout: default
   </header>
 
   <article class="post-content">
-  <div class="slides">
   {% for slide in page.sliders %}
+  <h1>{{slide.description}}</h1>
+  <div class="slides">
     {% for image in slide.images %}
     <div>
       <img src="{{site.url}}{{site.baseurl}}/{{slide.folder}}/{{image.name}}" />
       <div class="caption"> {{image.text}} </div>
     </div>  
     {% endfor %}
-  {% endfor %}
   </div>
-
-
   <div class="slider-nav">
-  {% for slide in page.sliders %}
     {% for image in slide.images %}
     <div>
       <img style="height:120px;" src="{{site.url}}{{site.baseurl}}/{{slide.folder}}/{{image.name}}" />
     </div>  
     {% endfor %}
-  {% endfor %}
   </div>
   </article>
+  {% endfor %}
+
+
 
   <script type="text/javascript">
     $(document).ready(function(){
