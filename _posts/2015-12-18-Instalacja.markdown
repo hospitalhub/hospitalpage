@@ -11,6 +11,9 @@ sliders:
     text: otwieram na smartfonie
   - name: 1-1c78a0a13f3e859e1832d1902f576ec1-13.png
     text: zobaczę tekst "Ojej! Brak strony..."
+- description: Otwarcie nieistniejącej strony 2
+  folder: /images
+  images:
   - name: 1-0a791cb2d94b34a2d3bb014897125a8e-18.png
     text: otwieram na tablecie
   - name: 1-2cb18feccf84c70e4ca6ccc94032429f-19.png
