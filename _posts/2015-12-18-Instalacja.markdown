@@ -11,11 +11,6 @@ sliders:
     text: otwieram na smartfonie
   - name: 1-1c78a0a13f3e859e1832d1902f576ec1-13.png
     text: zobaczę tekst "Ojej! Brak strony..."
-- description: | Kokpit        | Witaj                   |
-  folder: /images
-  images:
-  - name: 1-891f04f03c6457ce9916e48298d69c12-17.png
-    text: jestem na stronie "/wp/wp-admin/"
   - name: 1-0a791cb2d94b34a2d3bb014897125a8e-18.png
     text: otwieram na tablecie
   - name: 1-2cb18feccf84c70e4ca6ccc94032429f-19.png
@@ -28,11 +23,6 @@ sliders:
     text: kliknę na link "Kokpit"
   - name: 1-c977e81ce99cfbf02100ea3d54b83931-23.png
     text: zobaczę tekst "Witaj"
-- description: | Wtyczki       | epidemio                |
-  folder: /images
-  images:
-  - name: 2-891f04f03c6457ce9916e48298d69c12-17.png
-    text: jestem na stronie "/wp/wp-admin/"
   - name: 2-0a791cb2d94b34a2d3bb014897125a8e-18.png
     text: otwieram na tablecie
   - name: 2-2cb18feccf84c70e4ca6ccc94032429f-19.png
@@ -45,11 +35,6 @@ sliders:
     text: kliknę na link "Wtyczki"
   - name: 2-0e3a86fb56c89016c450433de13eda9c-23.png
     text: zobaczę tekst "epidemio"
-- description: | Wtyczki       | punction                |
-  folder: /images
-  images:
-  - name: 3-891f04f03c6457ce9916e48298d69c12-17.png
-    text: jestem na stronie "/wp/wp-admin/"
   - name: 3-0a791cb2d94b34a2d3bb014897125a8e-18.png
     text: otwieram na tablecie
   - name: 3-2cb18feccf84c70e4ca6ccc94032429f-19.png
@@ -62,9 +47,6 @@ sliders:
     text: kliknę na link "Wtyczki"
   - name: 3-1ba9b126d8d475c785f7e0d4813dd589-23.png
     text: zobaczę tekst "punction"
-- description: | Epidemiologia | Raport Epidemiologiczny |
-  folder: /images
-  images:
   - name: 4-891f04f03c6457ce9916e48298d69c12-17.png
     text: jestem na stronie "/wp/wp-admin/"
   - name: 4-0a791cb2d94b34a2d3bb014897125a8e-18.png
