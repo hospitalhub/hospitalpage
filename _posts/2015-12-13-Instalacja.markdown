@@ -9,7 +9,7 @@ Aby mieć pewność poprawnej instalacji sprawdzamy stronę i logowanie do kokp
 # Otwarcie nieistniejącej strony
 <div class="slides">
 <div>
-![jestem na stronie "/wp/qwezxc"]({{ site.url }}/{{ site.baseurl }}/images/1-c2febe256cdfb1d73e4796a002a0abd0-11.png)
+<img src="{{ site.url }}/{{ site.baseurl }}/images/1-c2febe256cdfb1d73e4796a002a0abd0-11.png" />
 </div>
 <div>
 ![otwieram na smartfonie]({{ site.url }}/{{ site.baseurl }}/images/1-ec081e1f7fc36d2b314eacc9f0e98ddf-12.png)
