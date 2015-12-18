@@ -13,7 +13,7 @@ layout: default
   <article class="post-content">
   {% for slide in page.sliders %}
   <h1>{{slide.description}}</h1>
-  <div class="slides">
+  <div class="slider-{{slide.description | slugify}}">
     {% for image in slide.images %}
     <div>
       <img src="{{site.url}}{{site.baseurl}}/{{slide.folder}}/{{image.name}}" />
@@ -21,7 +21,7 @@ layout: default
     </div>  
     {% endfor %}
   </div>
-  <div class="slider-nav">
+  <div class="slider-nav-{{slide.description | slugify}}">
     {% for image in slide.images %}
     <div>
       <img style="height:120px;" src="{{site.url}}{{site.baseurl}}/{{slide.folder}}/{{image.name}}" />
@@ -29,13 +29,11 @@ layout: default
     {% endfor %}
   </div>
   </article>
-  {% endfor %}
+  
 
-
-
-  <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function(){
-      $('.slides').slick({
+      $('.slider-{{slide.description | slugify}}').slick({
   infinite: true,
   speed: 500,
   fade: true,
@@ -47,7 +45,7 @@ layout: default
   arrows: false
       });
 
-$('.slider-nav').slick({
+$('.slider-nav-{{slide.description | slugify}}').slick({
   slidesToShow: 3,
   slidesToScroll: 1,
   asNavFor: '.slides',
@@ -59,6 +57,10 @@ $('.slider-nav').slick({
 
     });
   </script>
+  {% endfor %}
+
+
+
 
 
 </div>
