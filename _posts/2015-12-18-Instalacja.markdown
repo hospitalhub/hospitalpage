@@ -1,7 +1,8 @@
 ---
 layout: slider
 title: Instalacja
-sliders:- description: Otwarcie nieistniejącej strony
+sliders:
+- description: Otwarcie nieistniejącej strony
   folder: /images
   images:
   - name: 1-c2febe256cdfb1d73e4796a002a0abd0-11.png
