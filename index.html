@@ -15,6 +15,10 @@ layout: default
     {% endfor %}
   </ul>
 
+  {% for slider in site.data.sliders %}
+- [{{ slider.folder }}]({{ slider.folder }})
+  {% endfor %}
+
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
