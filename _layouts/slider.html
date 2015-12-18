@@ -16,7 +16,7 @@ layout: default
   {% for slide in site.data.sliders %}
     {% for image in slide.images %}
     <div>
-      <img src="{{slide.folder}}/{{image.name}}" />
+      <img src="{{site.url}}{{site.baseurl}}/{{slide.folder}}/{{image.name}}" />
     </div>  
     {% endfor %}
   {% endfor %}
