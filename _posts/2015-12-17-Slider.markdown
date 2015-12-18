@@ -1,6 +1,6 @@
 ---
 layout: slider
-title: blabla
+title: Logowanie do panelu
 sliders:
 - folder: /images
   images:
