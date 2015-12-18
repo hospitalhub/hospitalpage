@@ -21,6 +21,10 @@ layout: default
     {% endfor %}
   {% endfor %}
   </div>
+
+
+  <div class="slider-nav">
+  </div>
   </article>
 
   <script type="text/javascript">
@@ -34,7 +38,18 @@ layout: default
   autoplay: true,
   autoplaySpeed: 2000,
   infinite: true,
+  asNavFor: '.slider-nav'
       });
+
+$('.slider-nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.slides',
+  dots: true,
+  centerMode: true,
+  focusOnSelect: true
+});
+
     });
   </script>
 
