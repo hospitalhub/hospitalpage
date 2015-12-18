@@ -80,3 +80,4 @@ sliders:
   - name: 4-04b096f96c3d5e64d105b1584b809293-23.png
     text: zobaczę tekst "Raport Epidemiologiczny"
 ---
+qwe
