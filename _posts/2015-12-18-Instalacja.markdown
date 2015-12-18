@@ -1,8 +1,9 @@
 ---
 layout: slider
 title: Instalacja
-sliders:- description: Otwarcie nieistniejącej strony
- folder: /images
+sliders:
+- description: Otwarcie nieistniejącej strony
+  folder: /images
   images:
   - name: 1-c2febe256cdfb1d73e4796a002a0abd0-11.png
     text: jestem na stronie "/wp/qwezxc"
@@ -11,7 +12,7 @@ sliders:- description: Otwarcie nieistniejącej strony
   - name: 1-1c78a0a13f3e859e1832d1902f576ec1-13.png
     text: zobaczę tekst "Ojej! Brak strony..."
 - description: | Kokpit        | Witaj                   |
- folder: /images
+  folder: /images
   images:
   - name: 1-891f04f03c6457ce9916e48298d69c12-17.png
     text: jestem na stronie "/wp/wp-admin/"
@@ -28,7 +29,7 @@ sliders:- description: Otwarcie nieistniejącej strony
   - name: 1-c977e81ce99cfbf02100ea3d54b83931-23.png
     text: zobaczę tekst "Witaj"
 - description: | Wtyczki       | epidemio                |
- folder: /images
+  folder: /images
   images:
   - name: 2-891f04f03c6457ce9916e48298d69c12-17.png
     text: jestem na stronie "/wp/wp-admin/"
@@ -45,7 +46,7 @@ sliders:- description: Otwarcie nieistniejącej strony
   - name: 2-0e3a86fb56c89016c450433de13eda9c-23.png
     text: zobaczę tekst "epidemio"
 - description: | Wtyczki       | punction                |
- folder: /images
+  folder: /images
   images:
   - name: 3-891f04f03c6457ce9916e48298d69c12-17.png
     text: jestem na stronie "/wp/wp-admin/"
@@ -62,7 +63,7 @@ sliders:- description: Otwarcie nieistniejącej strony
   - name: 3-1ba9b126d8d475c785f7e0d4813dd589-23.png
     text: zobaczę tekst "punction"
 - description: | Epidemiologia | Raport Epidemiologiczny |
- folder: /images
+  folder: /images
   images:
   - name: 4-891f04f03c6457ce9916e48298d69c12-17.png
     text: jestem na stronie "/wp/wp-admin/"
@@ -78,3 +79,4 @@ sliders:- description: Otwarcie nieistniejącej strony
     text: kliknę na link "Epidemiologia"
   - name: 4-04b096f96c3d5e64d105b1584b809293-23.png
     text: zobaczę tekst "Raport Epidemiologiczny"
+---
