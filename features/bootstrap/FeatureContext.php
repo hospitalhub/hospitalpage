@@ -4,6 +4,7 @@ use Behat\Behat\Hook\Scope\AfterStepScope;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Hook\Scope\BeforeFeatureScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
+use Behat\Behat\Hook\Scope\AfterFeatureScope;
 // use Behat\Behat\Context\TranslatedContextInterface,
 // use Behat\Gherkin\Node\PyStringNode,
 // Behat\Gherkin\Node\TableNode;
@@ -26,7 +27,15 @@ class FeatureContext extends MinkContext {
 	 * @BeforeFeature
 	 */
 	public static function prepareForTheFeature(BeforeFeatureScope $scope) {
- 		$post="---\nlayout: slider\ntitle: " . $scope->getFeature()->getTitle() . "\nsliders:";
+ 		$post="---\nlayout: slider\ntitle: " . $scope->getFeature()->getTitle() . "\nsliders:\n";
+		FeatureContext::printToScenario($scope, $post );
+	}
+	
+	/**
+	 * @BeforeFeature
+	 */
+	public static function afterTheFeature(AfterFeatureScope $scope) {
+		$post="---\n";
 		FeatureContext::printToScenario($scope, $post );
 	}
 	
