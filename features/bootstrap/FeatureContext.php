@@ -26,7 +26,7 @@ class FeatureContext extends MinkContext {
 	 * @BeforeFeature
 	 */
 	public static function prepareForTheFeature(BeforeFeatureScope $scope) {
- 		$post="---\nlayout: post\ntitle: " . $scope->getFeature()->getTitle() . "\n---\n\n" . preg_replace("/\n/", " ", $scope->getFeature()->getDescription()) . "\n";
+ 		$post="---\nlayout: slider\ntitle: " . $scope->getFeature()->getTitle() . "\nsliders:";
 		FeatureContext::printToScenario($scope, $post );
 	}
 	
@@ -35,7 +35,7 @@ class FeatureContext extends MinkContext {
 	 */
 	public function prepareForTheScenario(BeforeScenarioScope $scope) {
 		$this->scenarioCount++;
- 		$text="\n\n# " . $scope->getScenario()->getTitle()."\n"; 
+ 		$text="- description: " . $scope->getScenario()->getTitle() . "\n folder: /images\n  images:\n"; 
  		FeatureContext::printToScenario($scope, $text);
 	}
 	
@@ -55,7 +55,7 @@ class FeatureContext extends MinkContext {
   {
   	// filename - if the step is repeated it doesn't create additional screenshots
    	  $fileName = $this->scenarioCount . '-' . md5($scope->getStep()->getText()) .'-'. $scope->getStep()->getLine() . '.png';
-   	  $text = "\n\n![".$scope->getStep()->getText()."]({{ site.url }}/{{ site.baseurl }}/images/".$fileName . ")\n\n";
+   	  $text = "  - name: ". $fileName. "\n    text: ".$scope->getStep()->getText()."\n";
    	  FeatureContext::printToScenario($scope, $text);
    	  $this->saveScreenshot($fileName, getenv("HOME"));
   }
