@@ -32,7 +32,7 @@ class FeatureContext extends MinkContext {
 	}
 	
 	/**
-	 * @BeforeFeature
+	 * @AfterFeature
 	 */
 	public static function afterTheFeature(AfterFeatureScope $scope) {
 		$post="---\n";
