@@ -12,16 +12,20 @@ Aby mieć pewność poprawnej instalacji sprawdzamy stronę i logowanie do kokp
 <img src="{{ site.url }}/{{ site.baseurl }}/images/1-c2febe256cdfb1d73e4796a002a0abd0-11.png" />
 </div>
 <div>
-![otwieram na smartfonie]({{ site.url }}/{{ site.baseurl }}/images/1-ec081e1f7fc36d2b314eacc9f0e98ddf-12.png)
-
+<img src="{{ site.url }}/{{ site.baseurl }}/images/1-ec081e1f7fc36d2b314eacc9f0e98ddf-12.png" />
 </div>
 <div>
-
-![zobaczę tekst "Ojej! Brak strony..."]({{ site.url }}/{{ site.baseurl }}/images/1-1c78a0a13f3e859e1832d1902f576ec1-13.png)
-
-
+<img src="{{ site.url }}/{{ site.baseurl }}/images/1-1c78a0a13f3e859e1832d1902f576ec1-13.png" />
 </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.slides').slick({
+//        setting-name: setting-value
+      });
+    });
+  </script>
 
 # | Kokpit        | Witaj                   |
 
