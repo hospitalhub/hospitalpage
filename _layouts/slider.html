@@ -24,6 +24,13 @@ layout: default
 
 
   <div class="slider-nav">
+  {% for slide in page.sliders %}
+    {% for image in slide.images %}
+    <div>
+      <img src="{{site.url}}{{site.baseurl}}/{{slide.folder}}/{{image.name}}" />
+    </div>  
+    {% endfor %}
+  {% endfor %}
   </div>
   </article>
 
