@@ -15,7 +15,7 @@ layout: default
     {% endfor %}
   </ul>
   {% for slide in site.data.sliders %}
-     <a class="post-link" href="{{ slide.folder | prepend: site.baseurl }}">{{ slide.folder }} <a/>
+     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ slide.folder }} <a/>
   {% endfor %}
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
