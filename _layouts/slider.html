@@ -12,9 +12,7 @@ layout: default
 
   <article class="post-content">
   {% for slide in page.sliders %}
-  <header class="post-header">
-    <h2>{{ slide.description }}</h2>
-  </header>
+  <h2 class="section-heading">{{ slide.description }}</h2>
   <div class="slider-{{slide.description | slugify}}">
     {% for image in slide.images %}
     <div>
