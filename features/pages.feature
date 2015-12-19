@@ -2,7 +2,8 @@
 
 #language: pl
 Aspekt: Strony
-  Sprawdzamy stronę  
+  Sprawdzamy strony:
+  - nieistniejącą
   
   @javascript
   Scenariusz: Otwarcie nieistniejącej strony

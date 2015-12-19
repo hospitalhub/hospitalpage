@@ -27,7 +27,7 @@ class FeatureContext extends MinkContext {
 	 * @BeforeFeature
 	 */
 	public static function prepareForTheFeature(BeforeFeatureScope $scope) {
- 		$post="---\nlayout: slider\ntitle: " . $scope->getFeature()->getTitle() . "\nsliders:\n";
+ 		$post="---\nlayout: slider\ntitle: >\n  " . $scope->getFeature()->getTitle() . "\nsliders:\n";
 		FeatureContext::printToScenario($scope, $post );
 	}
 	
@@ -44,7 +44,7 @@ class FeatureContext extends MinkContext {
 	 */
 	public function prepareForTheScenario(BeforeScenarioScope $scope) {
 		$this->scenarioCount++;
- 		$text="- description: " . $scope->getScenario()->getTitle() . "\n  folder: /images\n  images:\n"; 
+ 		$text="- description: >\n  " . $scope->getScenario()->getTitle() . "\n  folder: /images\n  images:\n"; 
  		FeatureContext::printToScenario($scope, $text);
 	}
 	
