@@ -1,17 +1,9 @@
-# features/search.feature
+# features/
 
 #language: pl
-Aspekt: Instalacja
-  Aby mieć pewność poprawnej instalacji 
-  sprawdzamy stronę i logowanie do kokpitu 
+Aspekt: Logowanie
+  Sprawdzamy stronę i logowanie do kokpitu 
   
-
-  @javascript
-  Scenariusz: Otwarcie nieistniejącej strony
-    Zakładając, że jestem na stronie "/wp/qwezxc"
-    I otwieram na smartfonie
-    Wtedy zobaczę tekst "Ojej! Brak strony..."
-
   @javascript
   Szablon scenariusza: zawartość po zalogowaniu
     Zakładając, że jestem na stronie "/wp/wp-admin/"
@@ -25,6 +17,3 @@ Aspekt: Instalacja
   Przykłady:
    | link               | tekst                   |
    | Kokpit             | Witaj                   |
-   | Wtyczki            | epidemio                |
-   | Wtyczki            | punction                |
-   | Epidemiologia      | Raport Epidemiologiczny |
