@@ -1,12 +1,15 @@
 #!/bin/bash
 PATH=$PATH:/home/ubuntu
-if [ -z "$TRAVIS_PHP_VERSION" ]; then
-  export WP_ADDR='127.0.0.1:8000';
-  export PLATFORM='vagrant (non-travis)'
-  cd /var/www
-else
+if [ -n "$DOCKER" ]; then
+  export WP_ADDR='172.17.0.2';
+  export PLATFORM='docker'
+elif [ -n "$TRAVIS_PHP_VERSION" ]; then
   export WP_ADDR='127.0.0.1';
   export PLATFORM='travis-ci'
+else 
+  export WP_ADDR='127.0.0.1:8000';
+  export PLATFORM='vagrant (shell provider)'
+  cd /var/www
 fi
 echo "PLATFORM:$PLATFORM WP_ADDR:$WP_ADDR PWD:$pwd";
 sed -i.bak "s/DOMAIN_CURRENT_SITE', WP_ADDR/DOMAIN_CURRENT_SITE', '$WP_ADDR'/g" wp-config.php
