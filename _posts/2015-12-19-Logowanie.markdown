@@ -4,7 +4,7 @@ title: >
   Logowanie
 sliders:
 - description: >
-    | Kokpit | Witaj |
+    Logowanie do kokpitu
   folder: /images
   images:
   - name: 1-891f04f03c6457ce9916e48298d69c12-9.png
