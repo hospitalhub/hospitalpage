@@ -17,4 +17,4 @@ Aspekt: Logowanie
   Przykłady:
    | link               | tekst                   |
    | Kokpit             | Witaj                   |
-   | Accessible Poetry | Witaj w Poezji Dostępności |
+   | Accessible Poetry | Welcome to Accessible Poetry |
