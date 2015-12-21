@@ -21,6 +21,7 @@ shopt -s globstar
 function add_img {
 	#img_path="${2/$CATEGORY/images\/$CATEGORY}"
 	img_path="$2";
+	alt="$3";
 	if [ -e "$img_path.jpg" ]; then
         # echo "|   pic: $img_path.jpg"
         type="jpg"
@@ -34,7 +35,7 @@ function add_img {
 	if [ -z "$type" ]; then
         echo "WARN  no pic for $img_path"
 	else
-        wp media import "$img_path"."$type" --post_id="$1" --featured_image 
+        wp media import "$img_path"."$type" --post_id="$1" --alt="$alt" --featured_image 
         echo "INFO  import image $img_path.$type"
 	fi
 }
@@ -80,7 +81,7 @@ function create {
 	fi
 	# id is post ID
 	id=`wp post create "$1" --post_title="$title" $POST_TYPE --post_status=publish --porcelain`; 
-	add_img "$id" "$1"
+	add_img "$id" "$1" "$title"
 	tag "$id" "$directory"
 }
 
