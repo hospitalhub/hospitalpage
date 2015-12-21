@@ -22,7 +22,7 @@ sliders:
   - name: 1-c977e81ce99cfbf02100ea3d54b83931-15.png
     text: zobaczę tekst "Witaj"
 - description: >
-  | Accessible Poetry | Witaj w Poezji Dostępności |
+    | Accessible Poetry | Witaj w Poezji Dostępności |
   folder: /images
   images:
   - name: 2-891f04f03c6457ce9916e48298d69c12-9.png
