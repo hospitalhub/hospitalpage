@@ -1,9 +1,14 @@
-# wp post list --post_type=page --field=ID > pageid
 while read p; do
-  TITLE=`wp post get $p --field=post_title`
+  PARENT=`wp post get $p --field=post_parent`
+  TITLE=`wp post get $p --field=post_title | tr '\n' ' '`
+  if [ $PARENT -gt 0 ]; then
+   PARENT_TITLE=`wp post get $PARENT --field=post_title | tr '\n' ' '`
+   FILENAME="$PARENT_TITLE $TITLE"
+  else
+   FILENAME="$TITLE"
+  fi
+ echo "extracting $FILENAME"
  # TITLE=${TITLE#post_title*}
  # TITLE=${TITLE:1}
- echo $TITLE
-  wp post get $p --field=post_content > "post/$TITLE"
+ wp post get $p --field=post_content > "post/$FILENAME"
 done < pageid
-
