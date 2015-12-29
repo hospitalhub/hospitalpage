@@ -10,6 +10,7 @@ else
 fi
 command -v wp >/dev/null 2>&1 || { echo >&2 "I require wp but it's not installed.  Aborting."; exit 1; }
 cd $REPO_DIR
+echo "PWD:$PWD"
 CATEGORIES=(page post)
 # echo "no comments allowed"
 wp option set default_comment_status Disallow
@@ -130,8 +131,9 @@ function categoryHierarchy {
 
 for CATEGORY in ${CATEGORIES[@]}; do
 	# iterate over files in directories
-	# echo "$CATEGORY"
+	 echo "CATEGORY:$CATEGORY"
 	find $CATEGORY -type d -printf '%h\0%d\0%p\n'| sort -t '\0' -n | awk -F'\0' '{print $3}' | while read path; do
+		echo "PATH:$path"
 		categoryHierarchy "$path"
 	done
 	find $CATEGORY -type f -printf '%h\0%d\0%p\n'| sort -t '\0' -nr | awk -F'\0' '{print $3}' | while read filepath; do
