@@ -17,4 +17,5 @@ Aspekt: Logowanie
   Przykłady:
    | link               | tekst                   |
    | Kokpit             | Witaj                   |
+   | Wpisy              | Dodaj nowy              |
    | Accessible Poetry | Welcome to Accessible Poetry |
