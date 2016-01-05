@@ -1,3 +1,4 @@
 # Wordpress Hospital Project [![Build Status](https://travis-ci.org/hospitalhub/hospitalpage.svg?branch=master)](https://travis-ci.org/hospitalhub/hospitalpage)
 ---
-Hospital Page
+[HospitalPage Docs](https://hospitalhub.github.io/hospitalpage)
+
