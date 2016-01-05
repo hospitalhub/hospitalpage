@@ -1,0 +1,16 @@
+---
+layout: slider
+title: >
+  Strony
+sliders:
+- description: >
+  Otwarcie nieistniejącej strony
+  folder: /images
+  images:
+  - name: 1-ec081e1f7fc36d2b314eacc9f0e98ddf-10.png
+    text: otwieram na smartfonie
+  - name: 1-b53d8293bb203d6c9879c04549ec1e5a-11.png
+    text: jestem na stronie "/wp/nieistniejaca-strona"
+  - name: 1-1c78a0a13f3e859e1832d1902f576ec1-12.png
+    text: zobaczę tekst "Ojej! Brak strony..."
+---
