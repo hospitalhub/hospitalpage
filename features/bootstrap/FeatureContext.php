@@ -44,7 +44,7 @@ class FeatureContext extends MinkContext {
 	 */
 	public function prepareForTheScenario(BeforeScenarioScope $scope) {
 		$this->scenarioCount++;
- 		$text="- description: >\n  " . $scope->getScenario()->getTitle() . "\n  folder: /images\n  images:\n"; 
+ 		$text="- description: >\n    " . $scope->getScenario()->getTitle() . "\n  folder: /images\n  images:\n"; 
  		FeatureContext::printToScenario($scope, $text);
 	}
 	
