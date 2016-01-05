@@ -4,7 +4,7 @@ title: >
   Strony
 sliders:
 - description: >
-  Otwarcie nieistniejącej strony
+    Otwarcie nieistniejącej strony
   folder: /images
   images:
   - name: 1-ec081e1f7fc36d2b314eacc9f0e98ddf-10.png
