@@ -4,10 +4,10 @@ sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr
 echo "adding github keys"
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 echo "composer config install"
-composer config -g github-oauth.github.com $1
+sudo composer config -g github-oauth.github.com $1
 if [ "$USER" = "vagrant" ]; then
   echo "@VAGRANT dependencies"
-  composer config --global cache-dir /vagrant/cache/composer
+  sudo composer config --global cache-dir /vagrant/cache/composer
   cp resources/.env /home/vagrant/.env
   if [ ! -d /var/www ]; then
     mkdir -p /var/www;
