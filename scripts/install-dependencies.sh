@@ -1,6 +1,8 @@
 #!/bin/bash
 echo "composer@$USER"
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+sudo chown vagrant: /home/vagrant/.composer
+#sudo chown vagrant: /home/vagrant/.cache
 echo "adding github keys"
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 echo "composer config install"
