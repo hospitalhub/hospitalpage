@@ -12,7 +12,7 @@ elif [ "$HOME" == "/home/vagrant" ]; then
   export PLATFORM='vagrant (shell provider)'
   cd /var/www
 else
-  export IP='46.238.114.171';
+  export IP='46.238.114.180';
   export PLATFORM='production'
 fi
 export WP_ADDR="$IP$PORT"
@@ -20,6 +20,7 @@ echo "PLATFORM:$PLATFORM WP_ADDR:$WP_ADDR PWD:$pwd";
 sed -i.bak "s/DOMAIN_CURRENT_SITE', WP_ADDR/DOMAIN_CURRENT_SITE', '$WP_ADDR'/g" wp-config.php
 wp db create
 wp core multisite-install --url=$IP --base=$IP --title=x --admin_user=root --admin_email=x@x.w --admin_password=pass
+echo "POST CREATE $IP"
 wp rewrite structure '%postname%'
 wp core language activate pl_PL
 wp plugin activate --all
@@ -31,3 +32,4 @@ wp cap add administrator read_pacjenci_wszystkie_oddz
 #wp --require=example.php example hello Newman
 sed -i.bak "s/_SITE', '$WP_ADDR'/_SITE', WP_ADDR/g" wp-config.php
 rm wp-config.php.bak
+wp option set blog_upload_space 65536
