@@ -89,7 +89,7 @@ function create {
 function removeLeadingNumbers {
 	local  __resultvar=$2
 	number="[0-9]+ "
-	if [[ "$1" =~ ^[0-9]* ]]; then
+	if [[ "$1" =~ ^[0-9]*\  ]]; then
 		title=`echo ${1} | sed 's/^[0-9 ]\{1,4\}//'`
 	else
 		title=$1
