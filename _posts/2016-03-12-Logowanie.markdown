@@ -4,7 +4,7 @@ title: >
   Logowanie
 sliders:
 - description: >
-    | Kokpit            | Witaj                        |
+    | Kokpit            | Witaj             |
   folder: /images
   images:
   - name: 1-891f04f03c6457ce9916e48298d69c12-9.png
@@ -22,7 +22,7 @@ sliders:
   - name: 1-c977e81ce99cfbf02100ea3d54b83931-15.png
     text: zobaczę tekst "Witaj"
 - description: >
-    | Wpisy             | Dodaj nowy                   |
+    | Wpisy             | Dodaj nowy        |
   folder: /images
   images:
   - name: 2-891f04f03c6457ce9916e48298d69c12-9.png
@@ -40,7 +40,7 @@ sliders:
   - name: 2-9ad5f8eb9ed90157efd275462b3ad627-15.png
     text: zobaczę tekst "Dodaj nowy"
 - description: >
-    | Accessible Poetry | Welcome to Accessible Poetry |
+    | Accessible Poetry | Accessible Poetry |
   folder: /images
   images:
   - name: 3-891f04f03c6457ce9916e48298d69c12-9.png
@@ -55,6 +55,6 @@ sliders:
     text: nacisnę przycisk "Zaloguj się"
   - name: 3-824edbea26d5efa0ce542421dd0ffbda-14.png
     text: kliknę na link "Accessible Poetry"
-  - name: 3-48462656cba92e6e1a660115a2f258c2-15.png
-    text: zobaczę tekst "Welcome to Accessible Poetry"
+  - name: 3-512d0637f6683a9a933eeca0d8b4f50b-15.png
+    text: zobaczę tekst "Accessible Poetry"
 ---
