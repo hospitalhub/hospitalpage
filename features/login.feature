@@ -18,4 +18,4 @@ Aspekt: Logowanie
    | link               | tekst                   |
    | Kokpit             | Witaj                   |
    | Wpisy              | Dodaj nowy              |
-   | Accessible Poetry | Welcome to Accessible Poetry |
+   | Accessible Poetry  | Accessible Poetry       |
