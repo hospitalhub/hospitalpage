@@ -10,7 +10,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/hospitalhub/hospitalpage.git gh-pages > /dev/null
 
   #resize images
-  sudo apt-get insatll imagemagick
+  sudo apt-get install imagemagick
   convert '*.png[650>]' -crop 640x480+0+0 -set filename:f '%t' '%[filename:f].png'
 
   #go into diractory and copy data we're interested in to that directory
