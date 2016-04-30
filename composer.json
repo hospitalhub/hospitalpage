@@ -25,6 +25,7 @@
 		"amarcinkowski/epidemio" : "dev-master",
 		"wpackagist-plugin/accessible-poetry" : "*",
 		"wpackagist-plugin/bootstrap-3-shortcodes" : "*",
+		"wpackagist-plugin/category-posts-in-custom-menu" : "*",
 		"wpackagist-plugin/contact-form-7" : "*",
 		"wpackagist-plugin/contact-form-7-dynamic-text-extension" : "*",
 		"wpackagist-plugin/cookie-law-info" : "1.5.3",
@@ -39,6 +40,7 @@
 		"wpackagist-plugin/post-link-shortcodes" : "*",
 		"wpackagist-plugin/really-simple-captcha" : "*",
 		"wpackagist-plugin/recent-posts-by-category-widget" : "*",
+		"wpackagist-plugin/side-slide-responsive-menu" : "*",
 		"wpackagist-plugin/shortcode-menu" : "*",
 		"wpackagist-plugin/user-role-editor" : "*",
 		"wpackagist-plugin/zip-attachments" : "*"
