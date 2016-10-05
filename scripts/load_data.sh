@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/
+cd /vagrant
 REPO_DIR=page
 if [ ! -d "$REPO_DIR" ]; then
   # Control will enter here if $DIRECTORY doesn't exist.
