@@ -1,12 +1,15 @@
 #!/bin/bash
 cd ~/repo
 REPO_DIR=page
-repo=${1:$PAGE_REPO}
-if [ -z $repo ]; then
+if [ ! -d "$REPO_DIR" ]; then
+  # Control will enter here if $DIRECTORY doesn't exist.
+  repo=${1:$PAGE_REPO}
+  if [ -z $repo ]; then
 	echo "= set env PAGE_REPO=https://....git"
-else
+  else
 	rm -rf $REPO_DIR
 	git clone $repo
+  fi
 fi
 command -v wp >/dev/null 2>&1 || { echo >&2 "I require wp but it's not installed.  Aborting."; exit 1; }
 cd $REPO_DIR
