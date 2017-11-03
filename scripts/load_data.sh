@@ -145,7 +145,7 @@ for CATEGORY in ${CATEGORIES[@]}; do
 			echo "WARN  skipping images and scripts $filepath"
 		else
 			echo ;
-			create "$filepath"
+			create "$filepath" &
 		fi
 	done
 done
